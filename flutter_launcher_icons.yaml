@@ -1,0 +1,13 @@
+# flutter pub run flutter_launcher_icons
+flutter_launcher_icons:
+  image_path: "assets/logos/app-icon.png"
+
+  web:
+    generate: true
+    image_path: "assets/logos/app-icon.png"
+
+
+#  command to create launch icons
+
+#  dart pub add flutter_launcher_icons
+#  dart run flutter_launcher_icons -f flutter_launcher_icons.yaml

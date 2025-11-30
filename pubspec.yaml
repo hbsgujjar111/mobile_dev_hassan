@@ -1,0 +1,85 @@
+name: mobile_dev_hassan
+description: "mobile dev hassan portfolio"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  flutter_launcher_icons: ^0.14.4
+  intl: ^0.20.2
+  toastification: ^3.0.3
+  go_router: ^17.0.0
+  flutter_riverpod: ^3.0.3
+  logger: ^2.6.2
+  url_launcher: ^6.3.2
+  skeletonizer: ^2.1.1
+  animate_do: ^4.2.0
+  timeline_list: ^0.1.1
+  animated_text_kit: ^4.3.0
+  font_awesome_flutter: ^10.12.0
+  flutter_staggered_grid_view: ^0.7.0
+  web: ^1.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/animations/
+    - assets/icons/
+    - assets/images/
+    - assets/logos/
+    - assets/fonts/Antonio/
+    - assets/fonts/Inter/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Inter/Inter-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Inter/Inter-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Inter/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter/Inter-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Inter/Inter-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Inter/Inter-Black.ttf
+          weight: 900
+
+    - family: Antonio
+      fonts:
+        - asset: assets/fonts/Antonio/Antonio-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/Antonio/Antonio-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Antonio/Antonio-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Antonio/Antonio-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Antonio/Antonio-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Antonio/Antonio-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Antonio/Antonio-Bold.ttf
+          weight: 700

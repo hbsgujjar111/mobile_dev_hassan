@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="$FLUTTER_BASE_HREF">
+
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="description" content="Hassan Mobile Dev Portfolio">
+
+    <!-- iOS meta tags & icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mobile_dev_hassan">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <title>Mobile Dev Hassan</title>
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add Lottie Web -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>
+
+    <!-- Splash screen styling -->
+    <style>
+        body {
+          margin: 0;
+          overflow: hidden;
+          background-color: #ffffff;
+        }
+
+        /* Default splash screen background (light mode) */
+        #splash-screen {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          transition: opacity 1s ease-out;
+          background-color: #FFFFFF; /* Default background color for light mode */
+        }
+
+        /* Lottie container */
+        #lottie-container {
+          width: 80%;
+          max-width: 300px;
+          height: auto;
+        }
+
+        /* Light Mode Colors */
+        @media (prefers-color-scheme: light) {
+          #splash-screen {
+            background-color: #FFFFFF; /* Light mode background color */
+          }
+        }
+
+        /* Dark Mode Colors */
+        @media (prefers-color-scheme: dark) {
+          #splash-screen {
+            background-color: #1A1A1B; /* Dark mode background color */
+          }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Splash screen div for Lottie -->
+<div id="splash-screen">
+    <div id="lottie-container"></div>
+</div>
+
+<!-- Flutter app script -->
+<script src="flutter_bootstrap.js" async></script>
+
+<!-- Lottie animation initialization -->
+<script>
+    window.addEventListener('load', function () {
+      // Initialize the Lottie animation
+      var animation = lottie.loadAnimation({
+        container: document.getElementById('lottie-container'), // the DOM element to contain the animation
+        renderer: 'svg',
+        loop: true, // Set to true for continuous loop
+        autoplay: true, // Set to true to autoplay the animation
+        path: 'assets/animations/splash.json' // Path to your Lottie animation JSON file
+      });
+
+      // Hide splash screen after the animation finishes or after a timeout
+      setTimeout(function() {
+        document.getElementById('splash-screen').style.opacity = '1';
+        setTimeout(function() {
+          document.getElementById('splash-screen').style.display = 'none';
+        }, 600); // Adjust timing as needed
+      }, 800); // Adjust the delay before hiding the splash screen
+    });
+</script>
+
+</body>
+</html>
