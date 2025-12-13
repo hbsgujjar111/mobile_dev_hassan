@@ -45,6 +45,7 @@ class KColors {
   ];
 
   /// Brand Colors
+  static const Color whatsapp = Color(0xFF25d366);
   static const Color linkedIn = Color(0xFF0A66C2);
   static const Color stackOverflow = Color(0xFFf48024);
   static const Color gitHub = Color(0xFF171515);

@@ -3,4 +3,5 @@ class KAppRouteNames {
 
   /// home
   static String homePageRoute = "/home";
+  static String projectDetailRoute = "/project-detail";
 }

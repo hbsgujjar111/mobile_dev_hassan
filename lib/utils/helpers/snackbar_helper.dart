@@ -25,9 +25,10 @@ class SnackbarHelper {
       borderSide: BorderSide.none,
       boxShadow: [KShadowStyle.snackbarShadow],
       closeButton: ToastCloseButton(
-        buttonBuilder:
-            (context, onClose) =>
-                IconButton(onPressed: onClose, icon: const Icon(Icons.close, size: 16, color: KColors.kWhite)),
+        buttonBuilder: (context, onClose) => IconButton(
+          onPressed: onClose,
+          icon: const Icon(Icons.close, size: 16, color: KColors.kWhite),
+        ),
       ),
       showProgressBar: false,
       closeOnClick: true,
@@ -56,9 +57,10 @@ class SnackbarHelper {
       borderSide: BorderSide.none,
       boxShadow: [KShadowStyle.snackbarShadow],
       closeButton: ToastCloseButton(
-        buttonBuilder:
-            (context, onClose) =>
-                IconButton(onPressed: onClose, icon: const Icon(Icons.close, size: 16, color: KColors.kWhite)),
+        buttonBuilder: (context, onClose) => IconButton(
+          onPressed: onClose,
+          icon: const Icon(Icons.close, size: 16, color: KColors.kWhite),
+        ),
       ),
       showProgressBar: false,
       closeOnClick: true,
@@ -87,9 +89,10 @@ class SnackbarHelper {
       borderSide: BorderSide.none,
       boxShadow: [KShadowStyle.snackbarShadow],
       closeButton: ToastCloseButton(
-        buttonBuilder:
-            (context, onClose) =>
-                IconButton(onPressed: onClose, icon: const Icon(Icons.close, size: 16, color: KColors.blackColor)),
+        buttonBuilder: (context, onClose) => IconButton(
+          onPressed: onClose,
+          icon: const Icon(Icons.close, size: 16, color: KColors.blackColor),
+        ),
       ),
       showProgressBar: false,
       closeOnClick: true,
@@ -118,9 +121,10 @@ class SnackbarHelper {
       borderSide: BorderSide.none,
       boxShadow: [KShadowStyle.snackbarShadow],
       closeButton: ToastCloseButton(
-        buttonBuilder:
-            (context, onClose) =>
-                IconButton(onPressed: onClose, icon: const Icon(Icons.close, size: 16, color: KColors.kWhite)),
+        buttonBuilder: (context, onClose) => IconButton(
+          onPressed: onClose,
+          icon: const Icon(Icons.close, size: 16, color: KColors.kWhite),
+        ),
       ),
       showProgressBar: false,
       closeOnClick: true,

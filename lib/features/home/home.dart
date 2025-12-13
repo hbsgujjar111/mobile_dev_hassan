@@ -6,6 +6,7 @@ import '../../utils/constants/app_constants.dart';
 import '../../utils/extensions/context_extensions.dart';
 import '../education/education_section.dart';
 import '../experience/experience_section.dart';
+import '../footer/footer.dart';
 import '../project/projects_section.dart';
 import '../skills/skills_section.dart';
 import 'widgets/about_section.dart';
@@ -72,7 +73,7 @@ class _HomeState extends ConsumerState<Home> {
   /// Show flip card only during first 2 sections
   bool showFlipCard() {
     if (!_scrollController.hasClients || combinedHeight == 0) return false;
-    return _scrollController.offset <= (combinedHeight / 1.4);
+    return _scrollController.offset <= (combinedHeight / 1.5);
   }
 
   /// Floating AppBar visibility
@@ -98,6 +99,10 @@ class _HomeState extends ConsumerState<Home> {
   Widget build(BuildContext context) {
     final showNavItems = ref.watch(scrollVisibilityProvider);
 
+    final isMobile = context.isMobile;
+    final isTablet = context.isTablet;
+    final isDesktop = !isMobile && !isTablet;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -106,28 +111,34 @@ class _HomeState extends ConsumerState<Home> {
             child: Column(
               children: [
                 // Stack covering first 2 sections
-                SizedBox(
-                  height: combinedHeight,
-                  child: Stack(
-                    children: [
-                      Column(
-                        children: [
-                          MainSection(key: AppConstants.mainSectionKey),
-                          AboutSection(key: AppConstants.aboutSectionKey),
-                        ],
-                      ),
-                      if (!context.isTablet && !context.isMobile)
-                        if (showFlipCard()) ImageFlip(progress: flipProgress(), scrollOffset: _scrollController.offset),
-                    ],
+                if (isDesktop)
+                  SizedBox(
+                    height: combinedHeight,
+                    child: Stack(
+                      children: [
+                        Column(
+                          children: [
+                            MainSection(key: AppConstants.mainSectionKey),
+                            AboutSection(key: AppConstants.aboutSectionKey),
+                          ],
+                        ),
+                        if (!context.isTablet && !context.isMobile)
+                          if (showFlipCard())
+                            ImageFlip(progress: flipProgress(), scrollOffset: _scrollController.offset),
+                      ],
+                    ),
                   ),
-                ),
 
-                // Rest of the sections scroll normally
-                EducationSection(key: AppConstants.educationSectionKey),
+                if (!isDesktop) ...[
+                  MainSection(key: AppConstants.mainSectionKey),
+                  AboutSection(key: AppConstants.aboutSectionKey),
+                ],
                 SkillsSection(key: AppConstants.skillsSectionKey),
                 ExperienceSection(key: AppConstants.experienceSectionKey),
                 ProjectsSection(key: AppConstants.projectSectionKey),
+                EducationSection(key: AppConstants.educationSectionKey),
                 ContactSection(key: AppConstants.contactSectionKey),
+                Footer(),
               ],
             ),
           ),

@@ -6,9 +6,10 @@ import '../../../utils/extensions/context_extensions.dart';
 import '../../styles/shadow_styles.dart';
 
 class HoverCard extends StatelessWidget {
-  const HoverCard({super.key, required this.child, this.constraints, this.onTap});
+  const HoverCard({super.key, required this.child, this.constraints, this.onTap, this.padding});
 
   final Widget child;
+  final double? padding;
   final BoxConstraints? constraints;
   final void Function()? onTap;
 
@@ -32,35 +33,32 @@ class HoverCard extends StatelessWidget {
               onTap: onTap,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 220),
-                padding: const EdgeInsets.all(20),
+                padding: EdgeInsets.all(padding ?? 20),
                 constraints: constraints,
                 decoration: BoxDecoration(
-                  color:
-                      isDark
-                          ? isHovered
-                              ? KColors.darkContainer.withValues(alpha: .8)
-                              : KColors.darkContainer
-                          : isHovered
-                          ? KColors.lightContainer.withValues(alpha: .8)
-                          : KColors.lightContainer,
+                  color: isDark
+                      ? isHovered
+                            ? KColors.darkContainer.withValues(alpha: .8)
+                            : KColors.darkContainer
+                      : isHovered
+                      ? KColors.lightContainer.withValues(alpha: .8)
+                      : KColors.lightContainer,
                   borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
                   border: Border.all(
-                    color:
-                        isHovered
-                            ? isDark
-                                ? KColors.primaryDark
-                                : KColors.primaryLight
-                            : KColors.kTransparent,
+                    color: isHovered
+                        ? isDark
+                              ? KColors.primaryDark
+                              : KColors.primaryLight
+                        : KColors.kTransparent,
                     width: .5,
                   ),
-                  boxShadow:
-                      isDark
-                          ? isHovered
-                              ? KShadowStyle.cardShadowDark
-                              : KShadowStyle.cardShadowDimDark
-                          : isHovered
-                          ? KShadowStyle.cardShadow
-                          : KShadowStyle.cardShadowDimLight,
+                  boxShadow: isDark
+                      ? isHovered
+                            ? KShadowStyle.cardShadowDark
+                            : KShadowStyle.cardShadowDimDark
+                      : isHovered
+                      ? KShadowStyle.cardShadow
+                      : KShadowStyle.cardShadowDimLight,
                 ),
                 child: child,
               ),

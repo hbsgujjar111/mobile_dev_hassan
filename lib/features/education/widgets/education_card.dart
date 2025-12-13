@@ -14,11 +14,11 @@ class EducationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return HoverCard(
+      constraints: BoxConstraints(maxHeight: 150),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        spacing: KSizes.spaceBtwItems / 4,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             data.degree ?? "---",

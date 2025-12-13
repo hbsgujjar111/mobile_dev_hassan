@@ -18,11 +18,10 @@ class MyApp extends StatelessWidget {
           builder: (_, ref, _) {
             final theme = ref.watch(themeProvider);
             return MaterialApp.router(
-              builder:
-                  (context, child) => MediaQuery(
-                    data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
-                    child: child!,
-                  ),
+              builder: (context, child) => MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaler: TextScaler.linear(1.0)),
+                child: child!,
+              ),
               title: KTexts.appName,
               themeMode: theme,
               theme: KAppTheme.lightTheme,

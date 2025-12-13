@@ -47,27 +47,68 @@ class ResponsiveAppbar extends ConsumerWidget {
     final borderRadius = 28.0;
 
     final menuList = [
-      VerticalFlipText(text: KTexts.home, onTap: () => KHelperFunctions.scrollToSection(AppConstants.mainSectionKey)),
-      VerticalFlipText(text: KTexts.about, onTap: () => KHelperFunctions.scrollToSection(AppConstants.aboutSectionKey)),
       VerticalFlipText(
-        text: KTexts.education,
-        onTap: () => KHelperFunctions.scrollToSection(AppConstants.educationSectionKey),
+        text: KTexts.home,
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.mainSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
+      ),
+      VerticalFlipText(
+        text: KTexts.about,
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.aboutSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
       ),
       VerticalFlipText(
         text: KTexts.mySkills,
-        onTap: () => KHelperFunctions.scrollToSection(AppConstants.skillsSectionKey),
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.skillsSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
       ),
       VerticalFlipText(
         text: KTexts.experience,
-        onTap: () => KHelperFunctions.scrollToSection(AppConstants.experienceSectionKey),
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.experienceSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
       ),
       VerticalFlipText(
         text: KTexts.project,
-        onTap: () => KHelperFunctions.scrollToSection(AppConstants.projectSectionKey),
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.projectSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
       ),
       VerticalFlipText(
-        text: KTexts.contactMe,
-        onTap: () => KHelperFunctions.scrollToSection(AppConstants.contactSectionKey),
+        text: KTexts.education,
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.educationSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
+      ),
+      VerticalFlipText(
+        text: KTexts.contact,
+        onTap: () {
+          KHelperFunctions.scrollToSection(AppConstants.contactSectionKey);
+          if (context.isMobile || context.isTablet) {
+            toggleMenu.state = !isMenuOpen;
+          }
+        },
       ),
     ];
 
@@ -75,7 +116,7 @@ class ResponsiveAppbar extends ConsumerWidget {
       duration: const Duration(milliseconds: 400),
       curve: Curves.easeInOutCubic,
       height: containerHeight,
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.fromLTRB(20, 20, 20, 40),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4.0),
       decoration: BoxDecoration(
         color: isDark ? KColors.darkContainerSecondary : KColors.lightContainerSecondary,
@@ -99,19 +140,18 @@ class ResponsiveAppbar extends ConsumerWidget {
               AnimatedOpacity(
                 opacity: isMobile ? 1.0 : 0.0,
                 duration: const Duration(milliseconds: 400),
-                child:
-                    isMenuOpen
-                        ? SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: KSizes.spaceBtwItems / 2),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              spacing: KSizes.spaceBtwItems / 2,
-                              children: menuList,
-                            ),
+                child: isMenuOpen
+                    ? SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: KSizes.spaceBtwItems / 2),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            spacing: KSizes.spaceBtwItems / 2,
+                            children: menuList,
                           ),
-                        )
-                        : const SizedBox.shrink(),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
               ),
 
               // Top Row: Icon + Nav / Menu + Theme toggle
@@ -141,14 +181,12 @@ class ResponsiveAppbar extends ConsumerWidget {
                           child: IconButton(
                             icon: AnimatedSwitcher(
                               duration: const Duration(milliseconds: 200),
-                              transitionBuilder:
-                                  (child, anim) => RotationTransition(
-                                    turns:
-                                        child.key == const ValueKey('dark')
-                                            ? Tween(begin: 1.0, end: 0.75).animate(anim)
-                                            : anim,
-                                    child: child,
-                                  ),
+                              transitionBuilder: (child, anim) => RotationTransition(
+                                turns: child.key == const ValueKey('dark')
+                                    ? Tween(begin: 1.0, end: 0.75).animate(anim)
+                                    : anim,
+                                child: child,
+                              ),
                               child: Icon(
                                 isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
                                 // key: ValueKey(themeMode),
@@ -164,9 +202,8 @@ class ResponsiveAppbar extends ConsumerWidget {
                         IconButton(
                           icon: AnimatedSwitcher(
                             duration: const Duration(milliseconds: 400),
-                            transitionBuilder:
-                                (child, anim) =>
-                                    RotationTransition(turns: Tween(begin: 0.75, end: 1.0).animate(anim), child: child),
+                            transitionBuilder: (child, anim) =>
+                                RotationTransition(turns: Tween(begin: 0.75, end: 1.0).animate(anim), child: child),
                             child: Icon(isMenuOpen ? Icons.close : Icons.menu, key: ValueKey(isMenuOpen)),
                           ),
                           onPressed: () => toggleMenu.state = !isMenuOpen,

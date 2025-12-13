@@ -18,7 +18,7 @@ class EducationSection extends StatelessWidget {
         child: LayoutBuilder(
           builder: (context, constraints) {
             final screenWidth = constraints.maxWidth;
-            const maxCardWidth = 300.0;
+            const maxCardWidth = 350.0;
             final crossAxisCount = (screenWidth / maxCardWidth).floor().clamp(1, 3);
 
             return Padding(

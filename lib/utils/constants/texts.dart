@@ -10,6 +10,7 @@ class KTexts {
   static const String iAm = "I am";
   static const String hassanBinSalim = "Hassan Bin Salim";
   static const String flutterDeveloper = "Flutter Developer";
+  static const String viewMyWork = "View My Work";
 
   /// education
   static const String education = "Education";
@@ -25,32 +26,52 @@ class KTexts {
   static const String web = "Web";
   static const String windowsDesktop = "Windows Desktop";
   static const String macOS = "MacOS";
+  static const String readMore = "Read More";
+  static const String achievements = "Achievements:";
+  static const String technologies = "Technologies:";
+  static const String availableOn = "Available on:";
+  static const String company = "Company:";
+  static const String backToHome = "Back To Home";
 
   /// about
   static const String about = "About";
   static const String aboutMe = "About Me";
   static const String aboutMeContent =
-      "Results-driven Flutter Developer with 4.5+ years of experience building high-performance "
-      "cross-platform mobile apps in healthcare, education, and e-commerce. Proven ability to "
-      "lead development teams, implement clean architecture, and deliver robust "
-      "solutions using Riverpod, Firebase, and GraphQL. "
-      "Open to remote-first and onsite senior Flutter roles.";
+      "Hi, I'm Hassan Bin Salim — a Flutter Developer with 4.5+ years of experience creating "
+      "high-quality mobile applications. I’ve led development teams, guided architecture decisions, "
+      "and helped deliver scalable, performant, and visually polished apps for various companies. "
+      "I specialize in Flutter, Dart, Firebase, REST APIs, GraphQL, WebSockets, and real-time communication"
+      " with Agora. With strong skills in BLoC, Riverpod, GetX, Provider, MVC, and Clean Architecture, "
+      "I focus on building smooth, reliable, and user-friendly mobile experiences.";
   static const String yearsOfExperience = "Years of Experience";
   static const String completedProjects = "Completed Projects";
   static const String experienceCount = "4.5+";
   static const String projectCount = "25+";
+  static const String downloadResume = "Download Resume";
 
   /// experience
-  static const String experience = "Work Experience";
+  static const String experience = "Experience";
+  static const String workExperience = "Work Experience";
   static const String present = "Present";
 
   /// contact
-  static const String contactMe = "Contact Me";
+  static const String contact = "Contact";
+  static const String letsWorkTogether = "Let's Work Together";
+  static const String contactSubTitle =
+      "Have a project, collaboration idea, or opportunity? Let's team up and bring your idea to life!";
+  static const String repliesWith24Hours = "I typically respond to all inquiries within 24 hours";
   static const String getInTouch = "Get In Touch";
-  static const String address = "Lahore, Pakistan";
+  static const String address = "Lahore, Pakistan (GMT +5)";
+  static const String whatsapp = "Whatsapp";
   static const String linkedIn = "LinkedIn";
   static const String stackOverflow = "Stack Overflow";
   static const String gitHub = "GitHub";
+  static const String footerText = "© Copyright 2025. All Rights Reserved by Hassan Bin Salim";
+  static const String whyHireMe = "Why Hire Me?";
+  static const String because = "Because:";
+
+  // static const String a = "";
+  // static const String a = "";
 
   /// app Texts
   static const String somethingWentWrong = "Something went wrong!";

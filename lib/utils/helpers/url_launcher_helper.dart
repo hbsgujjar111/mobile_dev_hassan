@@ -53,6 +53,24 @@ class UrlLauncherHelper {
     }
   }
 
+  /// function to open whatsapp chat and message
+  static Future<void> launchWhatsApp() async {
+    String phoneNumber = "+923234895585";
+    String message = "Hi, i need a flutter dev";
+    final Uri whatsappUri = Uri.parse("https://wa.me/$phoneNumber?text=${Uri.encodeFull(message)}");
+
+    try {
+      if (await canLaunchUrl(whatsappUri)) {
+        await launchUrl(whatsappUri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch WhatsApp';
+      }
+    } catch (e) {
+      Logger().e(e.toString());
+      SnackbarHelper.errorSnackBar(KTexts.somethingWentWrong);
+    }
+  }
+
   /// function to open link in new tab or on external app
   static Future<void> openLink(String url) async {
     if (url.isNotEmpty) {

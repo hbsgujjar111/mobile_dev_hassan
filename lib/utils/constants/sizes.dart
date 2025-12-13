@@ -35,7 +35,7 @@ class KSizes {
   /// Default spacing between sections
   static const double defaultSpace = 64.0;
   static const double spaceBtwItems = 32.0;
-  static const double spaceBtwSections = 96.0;
+  static const double spaceBtwSections = 70.0;
 
   /// Border radius
   static const double borderRadiusSm = 4.0;

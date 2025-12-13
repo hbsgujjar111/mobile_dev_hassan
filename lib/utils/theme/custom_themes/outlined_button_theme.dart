@@ -17,15 +17,15 @@ class KOutlinedButtonTheme {
       iconSize: 24.0,
       iconColor: KColors.buttonLight,
       fixedSize: Size.fromHeight(48),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
       textStyle: TextStyle(
         color: KColors.buttonLight,
         fontFamily: "Antonio",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: FontWeight.w500,
-        height: 1.5,
+        height: 1,
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     ),
   );
 
@@ -41,15 +41,15 @@ class KOutlinedButtonTheme {
       iconSize: 24.0,
       iconColor: KColors.buttonDark,
       fixedSize: Size.fromHeight(48),
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
       textStyle: TextStyle(
         color: KColors.buttonDark,
         fontFamily: "Antonio",
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: FontWeight.w500,
-        height: 1.5,
+        height: 1,
       ),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
     ),
   );
 }

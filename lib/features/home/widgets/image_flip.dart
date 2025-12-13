@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_dev_hassan/common/widgets/images/custom_asset_image.dart';
+import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
 
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/extensions/context_extensions.dart';
@@ -51,11 +53,10 @@ class ImageFlip extends StatelessWidget {
       left: dx,
       child: Transform(
         alignment: Alignment.center,
-        transform:
-            Matrix4.identity()
-              ..setEntry(3, 2, 0.002)
-              ..rotateY(rotationY),
-        child: SizedBox(width: 300, height: 450, child: showFront ? _front : _back),
+        transform: Matrix4.identity()
+          ..setEntry(3, 2, 0.002)
+          ..rotateY(rotationY),
+        child: SizedBox(width: 300, child: showFront ? _front : _back),
       ),
     );
   }
@@ -63,9 +64,7 @@ class ImageFlip extends StatelessWidget {
   /// Cached widgets → no rebuild/memory waste
   Widget get _front => ClipRRect(
     borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
-    child: const _OptimizedNetworkImage(
-      url: "https://images.ctfassets.net/23aumh6u8s0i/4TsG2mTRrLFhlQ9G1m19sC/4c9f98d56165a0bdd71cbe7b9c2e2484/flutter",
-    ),
+    child: const KAssetImage(path: KAssets.main),
   );
 
   Widget get _back => Transform(
@@ -73,22 +72,9 @@ class ImageFlip extends StatelessWidget {
     transform: Matrix4.identity()..rotateY(pi),
     child: ClipRRect(
       borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
-      child: const _OptimizedNetworkImage(
-        url:
-            "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
-      ),
+      child: const KAssetImage(path: KAssets.about),
     ),
   );
 }
 
 /// Cached image widget → avoids rebuild on every scroll frame
-class _OptimizedNetworkImage extends StatelessWidget {
-  final String url;
-
-  const _OptimizedNetworkImage({required this.url});
-
-  @override
-  Widget build(BuildContext context) {
-    return Image.network(url, fit: BoxFit.cover, cacheWidth: 700, filterQuality: FilterQuality.medium);
-  }
-}

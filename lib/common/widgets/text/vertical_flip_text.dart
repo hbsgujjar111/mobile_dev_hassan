@@ -50,10 +50,10 @@ class _FlipTextState extends State<VerticalFlipText> with SingleTickerProviderSt
 
     final normalStyle =
         widget.normalStyle ??
-        context.textTheme.bodyMedium!.copyWith(color: isDark ? KColors.textDark : KColors.textLight);
+        context.textTheme.bodySmall!.copyWith(color: isDark ? KColors.textDark : KColors.textLight);
     final hoverStyle =
         widget.hoverStyle ??
-        context.textTheme.bodyMedium!.copyWith(color: isDark ? KColors.primaryDark : KColors.primaryLight);
+        context.textTheme.bodySmall!.copyWith(color: isDark ? KColors.primaryDark : KColors.primaryLight);
 
     return MouseRegion(
       onEnter: (_) => _onEnter(true),
@@ -70,10 +70,9 @@ class _FlipTextState extends State<VerticalFlipText> with SingleTickerProviderSt
             onTap: widget.onTap,
             child: Transform(
               alignment: Alignment.center,
-              transform:
-                  Matrix4.identity()
-                    ..setEntry(3, 2, 0.002)
-                    ..rotateX(angle),
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.002)
+                ..rotateX(angle),
               child: Transform(
                 alignment: Alignment.center,
                 transform: Matrix4.identity()..rotateX(flipText ? pi : 0),

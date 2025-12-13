@@ -28,17 +28,16 @@ class HoverIconCard extends StatelessWidget {
           return GestureDetector(
             onTap: onTap,
             child: Container(
-              width: 180,
-              height: 120,
+              width: 140,
+              height: 100,
               decoration: BoxDecoration(
-                color:
-                    isDark
-                        ? isHovered
-                            ? KColors.darkContainer.withValues(alpha: .8)
-                            : KColors.darkContainer
-                        : isHovered
-                        ? KColors.lightContainer.withValues(alpha: .8)
-                        : KColors.lightContainer,
+                color: isDark
+                    ? isHovered
+                          ? KColors.darkContainer.withValues(alpha: .8)
+                          : KColors.darkContainer
+                    : isHovered
+                    ? KColors.lightContainer.withValues(alpha: .8)
+                    : KColors.lightContainer,
                 borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
                 border: Border.all(
                   color: (isHovered || (context.isTablet || context.isMobile)) ? iconColor : KColors.kTransparent,
@@ -50,20 +49,22 @@ class HoverIconCard extends StatelessWidget {
                 children: [
                   FaIcon(
                     icon,
-                    size: KSizes.iconXLg,
-                    color:
-                        (isHovered || (context.isTablet || context.isMobile))
-                            ? iconColor
-                            : KColors.neutralSwatch.shade300,
+                    size: KSizes.iconLg,
+                    color: (isHovered || (context.isTablet || context.isMobile))
+                        ? iconColor
+                        : isDark
+                        ? KColors.textDark
+                        : KColors.textLight,
                   ),
 
                   Text(
                     title,
-                    style: context.textTheme.bodyMedium!.copyWith(
-                      color:
-                          (isHovered || (context.isTablet || context.isMobile))
-                              ? iconColor
-                              : KColors.neutralSwatch.shade300,
+                    style: context.textTheme.bodySmall!.copyWith(
+                      color: (isHovered || (context.isTablet || context.isMobile))
+                          ? iconColor
+                          : isDark
+                          ? KColors.textDark
+                          : KColors.textLight,
                     ),
                   ),
                 ],

@@ -20,8 +20,9 @@ class ExperienceModel {
     location: json["location"],
     startTime: json["start-time"] == null ? null : DateTime.parse(json["start-time"]),
     endTime: json["end-time"] == null ? null : DateTime.parse(json["end-time"]),
-    responsibilities:
-        json["responsibilities"] == null ? [] : List<String>.from(json["responsibilities"]!.map((x) => x)),
+    responsibilities: json["responsibilities"] == null
+        ? []
+        : List<String>.from(json["responsibilities"]!.map((x) => x)),
   );
 
   Map<String, dynamic> toMap() => {

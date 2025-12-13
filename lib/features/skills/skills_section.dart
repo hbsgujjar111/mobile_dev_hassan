@@ -28,21 +28,20 @@ class SkillsSection extends StatelessWidget {
                 runSpacing: KSizes.spaceBtwItems,
                 alignment: WrapAlignment.center,
                 runAlignment: WrapAlignment.center,
-                children:
-                    skillsList
-                        .map(
-                          (skill) => HoverCard(
-                            constraints: BoxConstraints(maxWidth: 380, minWidth: 380, minHeight: 280),
-                            child: Column(
-                              spacing: KSizes.spaceBtwItems / 2,
-                              children: [
-                                Text(skill.title ?? "---", style: context.textTheme.titleLarge),
-                                KChip(clipItems: skill.skills ?? []),
-                              ],
-                            ),
-                          ),
-                        )
-                        .toList(),
+                children: skillsList
+                    .map(
+                      (skill) => HoverCard(
+                        constraints: BoxConstraints(maxWidth: 380, minWidth: 380, minHeight: 280),
+                        child: Column(
+                          spacing: KSizes.spaceBtwItems / 2,
+                          children: [
+                            Text(skill.title ?? "---", style: context.textTheme.titleLarge),
+                            KChip(clipItems: skill.skills ?? []),
+                          ],
+                        ),
+                      ),
+                    )
+                    .toList(),
               ),
             ],
           ),

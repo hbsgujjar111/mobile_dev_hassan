@@ -4,46 +4,6 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/extensions/context_extensions.dart';
 
-// class KChip extends StatelessWidget {
-//   const KChip({super.key, required this.clipItems});
-//
-//   final List<String> clipItems;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final hover = ValueNotifier(false);
-//     return Wrap(
-//       spacing: KSizes.spaceBtwItems / 4,
-//       runSpacing: KSizes.spaceBtwItems / 16,
-//       children: List.generate(clipItems.length, (index) {
-//         final color = KColors.chipColors[index % KColors.chipColors.length];
-//         return MouseRegion(
-//           onEnter: (_) => hover.value = true,
-//           onExit: (_) => hover.value = false,
-//           cursor: SystemMouseCursors.click,
-//           child: ValueListenableBuilder(
-//             valueListenable: hover,
-//             builder: (context, isHovered, _) {
-//               return Chip(
-//                 elevation: 4.0,
-//                 backgroundColor: color,
-//                 side: BorderSide(color: color),
-//                 label: Text(
-//                   clipItems[index],
-//                   style: context.textTheme.labelMedium!.copyWith(
-//                     color: KColors.blackColor,
-//                     fontWeight: FontWeight.w600,
-//                   ),
-//                 ),
-//               );
-//             },
-//           ),
-//         );
-//       }),
-//     );
-//   }
-// }
-
 class KChip extends StatelessWidget {
   const KChip({super.key, required this.clipItems});
 
@@ -56,10 +16,9 @@ class KChip extends StatelessWidget {
       spacing: KSizes.spaceBtwItems / 4,
       runSpacing: KSizes.spaceBtwItems / 4,
       children: List.generate(clipItems.length, (index) {
-        final color =
-            isDark
-                ? KColors.darkChipColors[index % KColors.darkChipColors.length]
-                : KColors.lightChipColors[index % KColors.lightChipColors.length];
+        final color = isDark
+            ? KColors.darkChipColors[index % KColors.darkChipColors.length]
+            : KColors.lightChipColors[index % KColors.lightChipColors.length];
         return _AnimatedChip(label: clipItems[index], color: color);
       }),
     );
@@ -120,22 +79,26 @@ class _AnimatedChipState extends State<_AnimatedChip> with SingleTickerProviderS
             begin: widget.color,
             end: isDark ? KColors.blackColor : KColors.kWhite,
           ).evaluate(_animation);
+
+          final borderRadius = 50.0;
+
           return FittedBox(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(borderRadius),
                 border: Border.all(color: widget.color),
                 color: KColors.kTransparent,
               ),
               child: Stack(
                 children: [
-                  // Sliding fill layer
+                  // Sliding fill layer with clipping
                   Positioned.fill(
-                    child: FractionallySizedBox(
-                      alignment: Alignment.centerLeft,
-                      widthFactor: _animation.value,
-                      child: Container(
-                        decoration: BoxDecoration(color: widget.color, borderRadius: BorderRadius.circular(50)),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(borderRadius),
+                      child: FractionallySizedBox(
+                        alignment: Alignment.centerLeft,
+                        widthFactor: _animation.value,
+                        child: Container(color: widget.color),
                       ),
                     ),
                   ),

@@ -30,52 +30,50 @@ class ExperienceSection extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 spacing: KSizes.spaceBtwSections,
                 children: [
-                  Text(KTexts.experience.toUpperCase(), style: context.textTheme.headlineLarge),
+                  Text(KTexts.workExperience.toUpperCase(), style: context.textTheme.headlineLarge),
                   Timeline.builder(
                     context: context,
                     markerCount: experiences.length,
                     horizontalPadding: 0,
+                    physics: NeverScrollableScrollPhysics(),
                     properties: TimelineProperties(
                       iconSize: KSizes.iconXLg,
                       iconAlignment: MarkerIconAlignment.center,
                       lineColor: isDark ? KColors.primaryDark : KColors.primaryLight,
                       timelinePosition: isSmallScreen ? TimelinePosition.start : TimelinePosition.center,
                     ),
-                    markerBuilder:
-                        (context, i) => Marker(
-                          position:
-                              isSmallScreen
-                                  ? MarkerPosition.left
-                                  : i % 2 == 0
-                                  ? MarkerPosition.left
-                                  : MarkerPosition.right,
-                          icon: Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: isDark ? KColors.linearGradientDark : KColors.linearGradientLight,
-                              boxShadow: i == 0 ? KShadowStyle.cardShadow : KShadowStyle.cardShadowDimLight,
-                              border: Border.all(
-                                color:
-                                    isDark
-                                        ? i == 0
-                                            ? KColors.primaryDarkSwatch.shade800
-                                            : KColors.primaryDarkSwatch.shade200
-                                        : i == 0
-                                        ? KColors.primaryLightSwatch.shade800
-                                        : KColors.primaryLightSwatch.shade200,
-                                width: 1,
-                              ),
-                            ),
-                            child: Center(
-                              child: FaIcon(
-                                i == 0 ? FontAwesomeIcons.locationDot : FontAwesomeIcons.briefcase,
-                                color: KColors.kWhite,
-                                size: KSizes.iconSm,
-                              ),
-                            ),
+                    markerBuilder: (context, i) => Marker(
+                      position: isSmallScreen
+                          ? MarkerPosition.left
+                          : i % 2 == 0
+                          ? MarkerPosition.left
+                          : MarkerPosition.right,
+                      icon: Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: isDark ? KColors.linearGradientDark : KColors.linearGradientLight,
+                          boxShadow: i == 0 ? KShadowStyle.cardShadow : KShadowStyle.cardShadowDimLight,
+                          border: Border.all(
+                            color: isDark
+                                ? i == 0
+                                      ? KColors.primaryDarkSwatch.shade800
+                                      : KColors.primaryDarkSwatch.shade200
+                                : i == 0
+                                ? KColors.primaryLightSwatch.shade800
+                                : KColors.primaryLightSwatch.shade200,
+                            width: 1,
                           ),
-                          child: ExperienceCard(isSmallScreen: isSmallScreen, data: experiences[i]),
                         ),
+                        child: Center(
+                          child: FaIcon(
+                            i == 0 ? FontAwesomeIcons.locationDot : FontAwesomeIcons.briefcase,
+                            color: KColors.kWhite,
+                            size: KSizes.iconSm,
+                          ),
+                        ),
+                      ),
+                      child: ExperienceCard(isSmallScreen: isSmallScreen, data: experiences[i]),
+                    ),
                   ),
                 ],
               ),

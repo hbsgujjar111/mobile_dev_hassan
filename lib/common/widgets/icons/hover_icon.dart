@@ -34,10 +34,9 @@ class HoverIcon extends StatelessWidget {
       child: ValueListenableBuilder(
         valueListenable: hover,
         builder: (context, isHovered, _) {
-          final tooltip =
-              tooltipText != null
-                  ? Tooltip(message: tooltipText!, child: _buildIconOrImage(isHovered, context))
-                  : _buildIconOrImage(isHovered, context);
+          final tooltip = tooltipText != null
+              ? Tooltip(message: tooltipText!, child: _buildIconOrImage(isHovered, context))
+              : _buildIconOrImage(isHovered, context);
 
           return GestureDetector(onTap: onTap, child: tooltip);
         },

@@ -43,16 +43,17 @@ class VerticalIconColumnText extends StatelessWidget {
           height: 44,
           decoration: BoxDecoration(shape: BoxShape.circle, color: iconBgColor ?? KColors.kWhite),
           child: Center(
-            child:
-                icon != null
-                    ? Skeleton.shade(
-                      child: Icon(icon!, size: iconSize ?? 24, color: iconColor ?? KColors.neutralSwatch.shade900),
-                    )
-                    : Skeleton.shade(child: KImageIcon(icon: imageIcon ?? "", size: iconSize ?? 24, color: iconColor)),
+            child: icon != null
+                ? Skeleton.shade(
+                    child: Icon(icon!, size: iconSize ?? 24, color: iconColor ?? KColors.neutralSwatch.shade900),
+                  )
+                : Skeleton.shade(
+                    child: KImageIcon(icon: imageIcon ?? "", size: iconSize ?? 24, color: iconColor),
+                  ),
           ),
         ),
 
-        KSizes.spaceBtwItems.h,
+        (KSizes.spaceBtwItems / 2).h,
 
         if (title != null && title!.isNotEmpty) Text(title!, style: context.textTheme.bodyMedium),
         Text(subTitle, style: context.textTheme.bodyMedium),

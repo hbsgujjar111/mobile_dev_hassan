@@ -1,6 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mobile_dev_hassan/common/widgets/images/custom_asset_image.dart';
+import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
 
+import '../../../utils/constants/app_constants.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/texts.dart';
@@ -21,10 +25,10 @@ class MainSection extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(
           minHeight: context.height,
-          maxWidth: (isMobile || isTablet) ? context.width * .9 : context.width * .8,
+          maxWidth: (context.isMobile || context.isTablet) ? context.width * .9 : context.width * .8,
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: KSizes.spaceBtwSections),
+          padding: const EdgeInsets.symmetric(vertical: KSizes.spaceBtwSections * 1.5),
           child: Column(
             mainAxisAlignment: isDesktop ? MainAxisAlignment.center : MainAxisAlignment.start,
             spacing: KSizes.spaceBtwSections,
@@ -36,14 +40,10 @@ class MainSection extends StatelessWidget {
               if (!isDesktop)
                 Container(
                   width: 400,
-                  height: 500,
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(KSizes.cardRadiusLg)),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
-                    child: Image.network(
-                      "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
-                      fit: BoxFit.cover,
-                    ),
+                    child: KAssetImage(path: KAssets.main),
                   ),
                 ),
 
@@ -82,7 +82,11 @@ class MainSection extends StatelessWidget {
                       ),
                       child: AnimatedTextKit(
                         animatedTexts: [
-                          TypewriterAnimatedText(KTexts.hassanBinSalim.toUpperCase(), speed: Durations.short3),
+                          TypewriterAnimatedText(
+                            KTexts.hassanBinSalim.toUpperCase(),
+                            speed: Durations.short3,
+                            textAlign: (isMobile || isTablet) ? TextAlign.center : TextAlign.start,
+                          ),
                         ],
                         repeatForever: true,
                       ),
@@ -100,11 +104,49 @@ class MainSection extends StatelessWidget {
                         ),
                         child: AnimatedTextKit(
                           animatedTexts: [
-                            ScrambleAnimatedText(KTexts.flutterDeveloper.toUpperCase(), speed: Durations.medium2),
+                            ScrambleAnimatedText(
+                              KTexts.flutterDeveloper.toUpperCase(),
+                              speed: Durations.medium2,
+                              textAlign: (isMobile || isTablet) ? TextAlign.center : TextAlign.start,
+                            ),
                           ],
                           repeatForever: true,
                         ),
                       ),
+                    ),
+
+                    /// view work & contact buttons
+                    Wrap(
+                      spacing: KSizes.spaceBtwItems / 2,
+                      runSpacing: KSizes.spaceBtwItems / 2,
+                      alignment: isDesktop ? WrapAlignment.start : WrapAlignment.center,
+                      children: [
+                        /// project button
+                        SizedBox(
+                          width: 220,
+                          child: OutlinedButton(
+                            onPressed: () => KHelperFunctions.scrollToSection(AppConstants.projectSectionKey),
+                            child: Row(
+                              spacing: KSizes.spaceBtwItems / 2,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [Icon(FontAwesomeIcons.laptopCode), Text(KTexts.viewMyWork)],
+                            ),
+                          ),
+                        ),
+
+                        /// contact button
+                        SizedBox(
+                          width: 220,
+                          child: OutlinedButton(
+                            onPressed: () => KHelperFunctions.scrollToSection(AppConstants.contactSectionKey),
+                            child: Row(
+                              spacing: KSizes.spaceBtwItems / 2,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [Icon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
