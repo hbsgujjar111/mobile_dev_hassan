@@ -28,7 +28,7 @@ class ImageFlip extends StatelessWidget {
     // -----------------------------
     // 2️⃣ HORIZONTAL MOVEMENT
     // -----------------------------
-    final double startX = screenWidth * .76; // same as /1.3
+    final double startX = screenWidth * .7; // same as /1.3
     final double endX = screenWidth * .1;
 
     final double dx = startX - (startX - endX) * safeProgress;
@@ -36,7 +36,7 @@ class ImageFlip extends StatelessWidget {
     // -----------------------------
     // 3️⃣ VERTICAL MOVEMENT
     // -----------------------------
-    const double verticalFactor = .9;
+    const double verticalFactor = .7;
     final double dy = (scrollOffset * verticalFactor) + (screenHeight / 2) - 180;
 
     // -----------------------------
@@ -56,7 +56,7 @@ class ImageFlip extends StatelessWidget {
         transform: Matrix4.identity()
           ..setEntry(3, 2, 0.002)
           ..rotateY(rotationY),
-        child: SizedBox(width: 300, child: showFront ? _front : _back),
+        child: SizedBox(width: 400, child: showFront ? _front : _back),
       ),
     );
   }
@@ -76,5 +76,3 @@ class ImageFlip extends StatelessWidget {
     ),
   );
 }
-
-/// Cached image widget → avoids rebuild on every scroll frame

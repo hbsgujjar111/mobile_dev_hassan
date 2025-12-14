@@ -42,6 +42,7 @@ flutter:
     - assets/icons/
     - assets/files/
     - assets/images/
+    - assets/images/projects/
     - assets/logos/
     - assets/fonts/Antonio/
     - assets/fonts/Inter/

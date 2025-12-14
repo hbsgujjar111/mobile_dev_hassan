@@ -13,7 +13,7 @@ class KAssetImage extends StatelessWidget {
       path,
       fit: fit ?? BoxFit.fitWidth,
       alignment: alignment ?? AlignmentGeometry.topCenter,
-      cacheWidth: 700,
+      cacheWidth: 1920,
       filterQuality: FilterQuality.medium,
     );
   }

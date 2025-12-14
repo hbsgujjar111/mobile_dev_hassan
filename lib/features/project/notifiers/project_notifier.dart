@@ -15,8 +15,7 @@ final projects = [
       "Resolved critical bugs and updated dependencies to improve app stability.",
       "Optimized performance and ensured compatibility with latest Android/iOS versions",
     ],
-    graphic:
-        "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
+    graphic: "assets/images/projects/my-uts.png",
     android: "https://play.google.com/store/apps/details?id=com.uts.utstrackingapp",
     apple: "https://apps.apple.com/pk/app/myuts/id1613698217",
     huawei: "https://appgallery.huawei.com/app/C107385877",
@@ -39,8 +38,7 @@ final projects = [
       "Achieved 99% accuracy with offline image caching and background sync.",
       "Deployed in educational settings to automate attendance securely.",
     ],
-    graphic:
-        "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
+    graphic: "assets/images/projects/efs.png",
     android: "https://play.google.com/store/apps/details?id=com.efs.efs_attend.efs_new",
     apple: "https://apps.apple.com/pk/app/efs-attend/id1586428507",
     huawei: null,
@@ -65,8 +63,7 @@ final projects = [
       "Built and integrated role-based flows: customer redemption, order logs, and admin dashboards.",
       "Integrated backend APIs in Laravel and implemented point-based loyalty features",
     ],
-    graphic:
-        "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
+    graphic: "assets/images/projects/pantheon.png",
     android: "https://play.google.com/store/apps/details?id=app.mtech.pantheon_cafe",
     apple: "https://apps.apple.com/pk/app/pantheon-coffee/id6737890124",
     huawei: null,
@@ -88,8 +85,7 @@ final projects = [
       "Enabled secure video consultations and appointment scheduling.",
       "Implemented EMR access for doctors and patients.",
     ],
-    graphic:
-        "https://cdn.prod.website-files.com/654366841809b5be271c8358/659efd7c0732620f1ac6a1d6_why_flutter_is_the_future_of_app_development%20(1).webp",
+    graphic: "assets/images/projects/sehat-sahoolat.png",
     android: "https://play.google.com/store/apps/details?id=com.app.sehat_sahoolat",
     apple: "https://apps.apple.com/pk/app/sehat-sahoolat/id6444405734",
     huawei: null,

@@ -15,7 +15,7 @@ final GoRouter appRoutes = GoRouter(
   errorBuilder: (context, state) => ErrorScreen(error: state.error?.message),
   routes: <RouteBase>[
     /// home screen
-    GoRoute(name: KAppRouteNames.homePageRoute, path: KAppRouteNames.homePageRoute, builder: (_, _) => Home()),
+    GoRoute(path: KAppRouteNames.homePageRoute, builder: (_, _) => Home()),
 
     /// project detail
     GoRoute(

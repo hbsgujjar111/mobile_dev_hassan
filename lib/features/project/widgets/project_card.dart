@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../common/styles/shadow_styles.dart';
+import '../../../common/widgets/images/custom_asset_image.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/texts.dart';
@@ -19,7 +20,7 @@ class ProjectCard extends StatelessWidget {
     bool isDark = context.isDarkMode;
     return Container(
       width: context.width,
-      height: 500,
+      // height: 500,
       decoration: BoxDecoration(
         color: isDark ? KColors.darkContainer : KColors.lightContainer,
         borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
@@ -27,12 +28,12 @@ class ProjectCard extends StatelessWidget {
       ),
       padding: EdgeInsets.all(16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        spacing: KSizes.spaceBtwItems / 2,
         children: [
           /// image
           ClipRRect(
             borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
-            child: Image.network(data.graphic ?? "", fit: BoxFit.cover, height: 300, width: context.width),
+            child: KAssetImage(path: data.graphic ?? ""),
           ),
 
           /// title

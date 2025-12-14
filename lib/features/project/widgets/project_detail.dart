@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../common/widgets/chips/custom_chip.dart';
 import '../../../common/widgets/icons/hover_icon.dart';
+import '../../../common/widgets/images/custom_asset_image.dart';
 import '../../../common/widgets/layouts/listview_layout.dart';
 import '../../../utils/constants/assets_strings.dart';
 import '../../../utils/constants/colors.dart';
@@ -48,7 +49,7 @@ class ProjectDetail extends StatelessWidget {
                   width: context.width,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),
-                    child: Image.network(data.graphic ?? "", fit: BoxFit.fitHeight),
+                    child: KAssetImage(path: data.graphic ?? ""),
                   ),
                 ),
 
