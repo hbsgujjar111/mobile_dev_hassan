@@ -37,12 +37,7 @@ class KTexts {
   static const String about = "About";
   static const String aboutMe = "About Me";
   static const String aboutMeContent =
-      "Hi, I'm Hassan Bin Salim — a Flutter Developer with 4.5+ years of experience creating "
-      "high-quality mobile applications. I’ve led development teams, guided architecture decisions, "
-      "and helped deliver scalable, performant, and visually polished apps for various companies. "
-      "I specialize in Flutter, Dart, Firebase, REST APIs, GraphQL, WebSockets, and real-time communication"
-      " with Agora. With strong skills in BLoC, Riverpod, GetX, Provider, MVC, and Clean Architecture, "
-      "I focus on building smooth, reliable, and user-friendly mobile experiences.";
+      "Hi, I’m Hassan Bin Salim, a Flutter Developer with over 4.5 years of experience building high-quality mobile applications.I have led development teams, contributed to architectural decisions, and delivered scalable, performant, and visually polished apps across multiple organizations. My core expertise includes Flutter and Dart, along with Firebase, REST APIs, GraphQL, WebSockets, and real-time communication using Agora. I have hands-on experience with state management solutions such as BLoC, Riverpod, GetX, and Provider, and I regularly work with MVC and Clean Architecture principles. My focus is on creating smooth, reliable, and user-friendly mobile experiences that perform well in production environments.";
   static const String yearsOfExperience = "Years of Experience";
   static const String completedProjects = "Completed Projects";
   static const String experienceCount = "4.5+";
