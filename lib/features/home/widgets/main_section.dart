@@ -88,30 +88,29 @@ class MainSection extends StatelessWidget {
                             textAlign: (isMobile || isTablet) ? TextAlign.center : TextAlign.start,
                           ),
                         ],
-                        repeatForever: true,
+                        repeatForever: false,
+                        isRepeatingAnimation: false,
+                        totalRepeatCount: 1,
                       ),
                     ),
 
                     /// Role Animation
-                    SizedBox(
-                      height: 60,
-                      child: DefaultTextStyle(
-                        style: context.textTheme.headlineLarge!.copyWith(
-                          fontSize: isDesktop ? 48 : 40,
-                          color: isDark ? KColors.primaryDark : KColors.primaryLight,
-                          fontWeight: FontWeight.w600,
-                          letterSpacing: 1.1,
-                        ),
-                        child: AnimatedTextKit(
-                          animatedTexts: [
-                            ScrambleAnimatedText(
-                              KTexts.flutterDeveloper.toUpperCase(),
-                              speed: Durations.medium2,
-                              textAlign: (isMobile || isTablet) ? TextAlign.center : TextAlign.start,
-                            ),
-                          ],
-                          repeatForever: true,
-                        ),
+                    DefaultTextStyle(
+                      style: context.textTheme.headlineLarge!.copyWith(
+                        fontSize: isDesktop ? 48 : 40,
+                        color: isDark ? KColors.primaryDark : KColors.primaryLight,
+                        fontWeight: FontWeight.w600,
+                        letterSpacing: 1.1,
+                      ),
+                      child: AnimatedTextKit(
+                        animatedTexts: [
+                          TypewriterAnimatedText(
+                            KTexts.flutterDeveloper.toUpperCase(),
+                            speed: Durations.short3,
+                            textAlign: (isMobile || isTablet) ? TextAlign.center : TextAlign.start,
+                          ),
+                        ],
+                        repeatForever: true,
                       ),
                     ),
 

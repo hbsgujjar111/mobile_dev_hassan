@@ -49,7 +49,7 @@ class AboutSection extends StatelessWidget {
                             spacing: KSizes.spaceBtwItems / 2,
                             children: [
                               Text(
-                                KTexts.experienceCount,
+                                KHelperFunctions.getExperienceText(),
                                 style: context.textTheme.headlineLarge!.copyWith(
                                   color: isDark ? KColors.primaryDark : KColors.primaryLight,
                                   fontSize: context.isTablet

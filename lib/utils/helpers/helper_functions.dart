@@ -100,4 +100,43 @@ class KHelperFunctions {
     anchor.remove();
     web.URL.revokeObjectURL(url);
   }
+
+  /// get dynamic experience text
+  static String getExperienceText() {
+    var start = DateTime(2021, 2, 1);
+
+    final now = DateTime.now();
+
+    // 1. Calculate the initial difference in years and months
+    int years = now.year - start.year;
+    int months = now.month - start.month;
+
+    // 2. Adjust if the current day hasn't reached the start day yet
+    if (now.day < start.day) {
+      months--;
+    }
+
+    // 3. Normalize months (handle negative results from step 1)
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+
+    // 4. Return dynamic phrasing based on the month count
+    if (years == 0) {
+      if (months == 0) return "Just started";
+      return "$months months of experience";
+    }
+
+    // Logic for years
+    if (months <= 2) {
+      return "$years+";
+    } else if (months >= 3 && months <= 8) {
+      return "$years.5";
+    } else if (months >= 9) {
+      return "Almost ${years + 1}";
+    } else {
+      return "$years";
+    }
+  }
 }

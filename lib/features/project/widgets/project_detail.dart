@@ -87,16 +87,16 @@ class ProjectDetail extends StatelessWidget {
                       KSeparatedListView(
                         itemCount: data.achievements!.length,
                         separatorBuilder: (_, _) => (KSizes.spaceBtwItems / 4).h,
-                        itemBuilder: (_, i) => Text.rich(
-                          TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "★ ",
-                                style: context.textTheme.bodySmall!.copyWith(color: KColors.warning),
-                              ),
-                              TextSpan(text: data.achievements![i], style: context.textTheme.bodySmall),
-                            ],
-                          ),
+                        itemBuilder: (_, i) => Row(
+                          spacing: KSizes.spaceBtwItems / 2,
+                          children: [
+                            Icon(
+                              Icons.check_rounded,
+                              size: 16,
+                              color: isDark ? KColors.primaryDark : KColors.primaryLight,
+                            ),
+                            Text(data.achievements![i], style: context.textTheme.bodySmall),
+                          ],
                         ),
                       ),
                     ],

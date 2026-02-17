@@ -16,9 +16,10 @@ class KChip extends StatelessWidget {
       spacing: KSizes.spaceBtwItems / 4,
       runSpacing: KSizes.spaceBtwItems / 4,
       children: List.generate(clipItems.length, (index) {
-        final color = isDark
-            ? KColors.darkChipColors[index % KColors.darkChipColors.length]
-            : KColors.lightChipColors[index % KColors.lightChipColors.length];
+        final color = isDark ? KColors.primaryDark : KColors.primaryLight;
+        // final color = isDark
+        //     ? KColors.darkChipColors[index % KColors.darkChipColors.length]
+        //     : KColors.lightChipColors[index % KColors.lightChipColors.length];
         return _AnimatedChip(label: clipItems[index], color: color);
       }),
     );
