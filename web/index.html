@@ -31,39 +31,26 @@
           background-color: #ffffff;
         }
 
-        /* Default splash screen background (light mode) */
+        /* Modern, centered splash screen */
         #splash-screen {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          position: fixed;
+          inset: 0;
+          display: grid;
+          place-items: center;
           z-index: 9999;
-          transition: opacity 1s ease-out;
-          background-color: #FFFFFF; /* Default background color for light mode */
+          transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+          background-color: #FFFFFF; /* Light mode */
         }
 
-        /* Lottie container */
         #lottie-container {
-          width: 80%;
-          max-width: 300px;
-          height: auto;
+          width: 250px;
+          height: 250px;
         }
 
-        /* Light Mode Colors */
-        @media (prefers-color-scheme: light) {
-          #splash-screen {
-            background-color: #FFFFFF; /* Light mode background color */
-          }
-        }
-
-        /* Dark Mode Colors */
+        /* Dark Mode Support */
         @media (prefers-color-scheme: dark) {
           #splash-screen {
-            background-color: #1A1A1B; /* Dark mode background color */
+            background-color: #1A1A1B;
           }
         }
     </style>
@@ -75,29 +62,58 @@
     <div id="lottie-container"></div>
 </div>
 
-<!-- Flutter app script -->
+<!-- Flutter app script (Modern initialization for Flutter 3.22+) -->
 <script src="flutter_bootstrap.js" async></script>
 
-<!-- Lottie animation initialization -->
+<!-- Lottie animation & Flutter synchronization -->
 <script>
-    window.addEventListener('load', function () {
-      // Initialize the Lottie animation
-      var animation = lottie.loadAnimation({
-        container: document.getElementById('lottie-container'), // the DOM element to contain the animation
-        renderer: 'svg',
-        loop: true, // Set to true for continuous loop
-        autoplay: true, // Set to true to autoplay the animation
-        path: 'assets/animations/splash.json' // Path to your Lottie animation JSON file
-      });
+    // Note the "assets/assets/" path. This is required for Release mode & GitHub Pages!
+    const assetPath = 'assets/assets/animations/splash.json';
 
-      // Hide splash screen after the animation finishes or after a timeout
-      setTimeout(function() {
-        document.getElementById('splash-screen').style.opacity = '1';
-        setTimeout(function() {
-          document.getElementById('splash-screen').style.display = 'none';
-        }, 600); // Adjust timing as needed
-      }, 800); // Adjust the delay before hiding the splash screen
+    // 1. Load the Lottie Animation immediately
+    const animation = lottie.loadAnimation({
+      container: document.getElementById('lottie-container'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: assetPath
     });
+
+    // 2. Wait for Flutter to finish loading before hiding the splash screen
+    window.addEventListener('load', function () {
+      if (window._flutter && window._flutter.loader) {
+        window._flutter.loader.load({
+          onEntrypointLoaded: async function(engineInitializer) {
+            const appRunner = await engineInitializer.initializeEngine();
+
+            // Give Flutter an extra 200ms to render the first frame
+            setTimeout(async () => {
+              const splash = document.getElementById('splash-screen');
+
+              // Start the smooth fade-out
+              if (splash) splash.style.opacity = '0';
+
+              // Actually run the Flutter app
+              await appRunner.runApp();
+
+              // Remove the splash screen from memory after the fade transition completes
+              setTimeout(() => {
+                if (splash) splash.remove();
+              }, 600);
+            }, 200);
+          }
+        });
+      }
+    });
+
+    // 3. Fallback Safety Timer (In case the user has a bad connection and Flutter fails to load)
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) {
+        splash.style.opacity = '0';
+        setTimeout(() => splash.remove(), 600);
+      }
+    }, 10000); // 10 seconds max wait time
 </script>
 
 </body>

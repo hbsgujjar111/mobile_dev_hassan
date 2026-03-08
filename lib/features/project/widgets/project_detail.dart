@@ -89,13 +89,14 @@ class ProjectDetail extends StatelessWidget {
                         separatorBuilder: (_, _) => (KSizes.spaceBtwItems / 4).h,
                         itemBuilder: (_, i) => Row(
                           spacing: KSizes.spaceBtwItems / 2,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(
                               Icons.check_rounded,
                               size: 16,
                               color: isDark ? KColors.primaryDark : KColors.primaryLight,
                             ),
-                            Text(data.achievements![i], style: context.textTheme.bodySmall),
+                            Expanded(child: Text(data.achievements![i], style: context.textTheme.bodySmall)),
                           ],
                         ),
                       ),
