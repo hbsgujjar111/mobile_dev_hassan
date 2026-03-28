@@ -1,6 +1,6 @@
 const String myGmail = "mobiledevhassan@gmail.com";
 const String myNumber = "+92 323 4895585";
-const String linkedInURL = "https://www.linkedin.com/in/hbsgujjar111";
+const String linkedInURL = "https://www.linkedin.com/in/hassanbinsalim";
 const String stackOverflowURL = "https://stackoverflow.com/users/15538425/hassan-gujjar";
 const String gitHubURL = "https://github.com/hbsgujjar111";
 
