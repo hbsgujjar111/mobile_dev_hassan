@@ -28,22 +28,19 @@ class KNetworkImage extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      webHtmlElementStrategy: WebHtmlElementStrategy.prefer,
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress == null) return child;
         return Center(child: loadingWidget ?? const CircularProgressIndicator());
       },
-      errorBuilder: (context, error, stackTrace) {
-        return errorWidget ??
-            Container(
-              width: width,
-              height: height,
-              decoration: BoxDecoration(
-                color: Colors.black12,
-                borderRadius: BorderRadius.circular(KSizes.cardRadiusSm),
-              ),
-              child: Icon(Icons.image_not_supported, size: KSizes.iconXLg, color: KColors.darkGrey),
-            );
-      },
+      errorBuilder: (context, error, stackTrace) =>
+          errorWidget ??
+          Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(color: Colors.black12, borderRadius: BorderRadius.circular(KSizes.cardRadiusSm)),
+            child: Icon(Icons.image_not_supported, size: KSizes.iconXLg, color: KColors.darkGrey),
+          ),
     );
   }
 }

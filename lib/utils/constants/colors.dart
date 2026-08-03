@@ -4,7 +4,7 @@ class KColors {
   KColors._();
 
   /// App Basic Colors
-  static const Color primaryLight = Color(0xFF1e6ef4);
+  static const Color primaryLight = Color(0xFF00875A);
   static const Color primaryDark = Color(0xFF7aff70);
   static const Color primary = Color(0xFFC73907);
   static const Color secondary = Color(0xFFFF6A10);
@@ -14,7 +14,7 @@ class KColors {
   static const Gradient linearGradientLight = LinearGradient(
     begin: Alignment.bottomCenter,
     end: Alignment.topRight,
-    colors: [Color(0xFF0A3EC9), Color(0xFF165AE2)],
+    colors: [Color(0xFF016743), Color(0xFF019967)],
   );
 
   static const Gradient linearGradientDark = LinearGradient(
@@ -75,7 +75,7 @@ class KColors {
   static Color darkContainerSecondary = Color(0xFF0F0F0F);
 
   /// Button Colors
-  static const Color buttonLight = Color(0xFF1e6ef4);
+  static const Color buttonLight = Color(0xFF00875A);
   static const Color buttonDark = Color(0xFF7aff70);
   static const Color buttonPrimary = Color(0xFFFF6A10);
   static const Color buttonSecondary = Color(0xFF387AF2);
@@ -105,17 +105,17 @@ class KColors {
 
   /// swatches
 
-  static const MaterialColor primaryLightSwatch = MaterialColor(0xFF1E6EF4, <int, Color>{
-    50: Color(0xFFE3EEFD),
-    100: Color(0xFFB9D3FB),
-    200: Color(0xFF8CB7F9),
-    300: Color(0xFF5F9AF7),
-    400: Color(0xFF3D84F5),
-    500: Color(0xFF1E6EF4),
-    600: Color(0xFF1A65EC),
-    700: Color(0xFF165AE2),
-    800: Color(0xFF1250D9),
-    900: Color(0xFF0A3EC9),
+  static const MaterialColor primaryLightSwatch = MaterialColor(0xFF00875a, <int, Color>{
+    50: Color(0xFFe6f7ef),
+    100: Color(0xFFc3ead8),
+    200: Color(0xFF9bddbf),
+    300: Color(0xFF6fd0a6),
+    400: Color(0xFF4ac693),
+    500: Color(0xFF13bb80),
+    600: Color(0xFF0aab74),
+    700: Color(0xFF019967),
+    800: Color(0xFF00875a),
+    900: Color(0xFF016743),
   });
 
   static const MaterialColor primaryDarkSwatch = MaterialColor(0xFF7AFF70, <int, Color>{

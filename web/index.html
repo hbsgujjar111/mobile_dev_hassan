@@ -5,6 +5,8 @@
 
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+
+    <!-- Initial static description (Updated instantly by the script below) -->
     <meta name="description" content="Hassan Mobile Dev Portfolio">
 
     <!-- iOS meta tags & icons -->
@@ -17,8 +19,61 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png"/>
 
-    <title>Mobile Dev Hassan</title>
+    <title>Hassan Bin Salim | Senior Flutter Developer</title>
     <link rel="manifest" href="manifest.json">
+
+    <!-- Dynamic SEO & Experience Calculation Script -->
+    <script>
+        (function() {
+            // Your career start date (February 2021)
+            const startDate = new Date('2021-02-01');
+            const currentDate = new Date();
+
+            // Calculate fractional years (e.g., 5.5, 5.8)
+            const diffInMs = currentDate - startDate;
+            const msInYear = 1000 * 60 * 60 * 24 * 365.25; // Accounting for leap years
+            const yearsOfExp = (diffInMs / msInYear).toFixed(1);
+
+            const titleText = "Hassan Bin Salim | Senior Flutter Developer";
+            const descText = "Senior Flutter Developer with " + yearsOfExp + "+ years of experience building scalable, high-performance cross-platform mobile applications.";
+
+            // Note: Use a relative path to the preview image in your web/assets folder
+            const imageUrl = window.location.origin + window.location.pathname + "assets/assets/preview.png";
+
+            // Helper function to update or create meta tags dynamically
+            function setMeta(attribute, nameOrProperty, value) {
+                const selector = `meta[${attribute}="${nameOrProperty}"]`;
+                let meta = document.querySelector(selector);
+                if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.setAttribute(attribute, nameOrProperty);
+                    document.head.appendChild(meta);
+                }
+                meta.setAttribute('content', value);
+            }
+
+            // Set DOM Title
+            document.title = titleText;
+
+            // Update standard SEO
+            setMeta('name', 'title', titleText);
+            setMeta('name', 'description', descText);
+
+            // Update OpenGraph (Facebook, LinkedIn, WhatsApp)
+            setMeta('property', 'og:type', 'website');
+            setMeta('property', 'og:url', window.location.href);
+            setMeta('property', 'og:title', titleText);
+            setMeta('property', 'og:description', descText);
+            setMeta('property', 'og:image', imageUrl);
+
+            // Update Twitter Cards
+            setMeta('name', 'twitter:card', 'summary_large_image');
+            setMeta('name', 'twitter:url', window.location.href);
+            setMeta('name', 'twitter:title', titleText);
+            setMeta('name', 'twitter:description', descText);
+            setMeta('name', 'twitter:image', imageUrl);
+        })();
+    </script>
 
     <!-- Add Lottie Web -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.9/lottie.min.js"></script>

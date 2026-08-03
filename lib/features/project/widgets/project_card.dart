@@ -20,7 +20,6 @@ class ProjectCard extends StatelessWidget {
     bool isDark = context.isDarkMode;
     return Container(
       width: context.width,
-      // height: 500,
       decoration: BoxDecoration(
         color: isDark ? KColors.darkContainer : KColors.lightContainer,
         borderRadius: BorderRadius.circular(KSizes.cardRadiusLg),

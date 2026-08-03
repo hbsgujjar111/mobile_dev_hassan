@@ -1,11 +1,13 @@
+import '../../../utils/helpers/helper_functions.dart';
+
 const String myGmail = "mobiledevhassan@gmail.com";
 const String myNumber = "+92 323 4895585";
 const String linkedInURL = "https://www.linkedin.com/in/hassanbinsalim";
 const String stackOverflowURL = "https://stackoverflow.com/users/15538425/hassan-gujjar";
 const String gitHubURL = "https://github.com/hbsgujjar111";
 
-const List<String> whyHireMe = [
-  "Over 4.5 years of hands-on Flutter experience delivering complete mobile applications from concept to production.",
+final List<String> whyHireMe = [
+  "Over ${KHelperFunctions.getExperienceText()} years of hands-on Flutter experience delivering complete mobile applications from concept to production.",
   "Strong understanding of mobile architecture with practical experience using BLoC, Riverpod, GetX, Provider, MVC, and Clean Architecture.",
   "Proven expertise in integrating Firebase, REST APIs, GraphQL, WebSockets, and real-time application features.",
   "Experience leading development efforts, reviewing code, and maintaining high engineering standards across teams.",

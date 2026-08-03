@@ -34,15 +34,18 @@ class KTexts {
   static const String availableOn = "Available on:";
   static const String company = "Company:";
   static const String backToHome = "Back To Home";
+  static const String mobileApps = "Mobile Apps";
+  static const String packages = "Packages";
+  static const String viewOnPubDev = "View on Pub.dev";
+  static const String a = "";
 
   /// about
   static const String about = "About";
   static const String aboutMe = "About Me";
   static final String aboutMeContent =
-      "Hi, I’m Hassan Bin Salim, a Flutter Developer with over ${KHelperFunctions.getExperienceText()} years of experience building high-quality mobile applications.I have led development teams, contributed to architectural decisions, and delivered scalable, performant, and visually polished apps across multiple organizations. My core expertise includes Flutter and Dart, along with Firebase, REST APIs, GraphQL, WebSockets, and real-time communication using Agora. I have hands-on experience with state management solutions such as BLoC, Riverpod, GetX, and Provider, and I regularly work with MVC and Clean Architecture principles. My focus is on creating smooth, reliable, and user-friendly mobile experiences that perform well in production environments.";
+      "Hi, I’m Hassan Bin Salim, a Flutter Developer with over ${KHelperFunctions.getExperienceText()} years of experience building high-quality mobile applications. I have led development teams, contributed to architectural decisions, and delivered scalable, performant, and visually polished apps across multiple organizations. My core expertise includes Flutter and Dart, along with Firebase, REST APIs, GraphQL, WebSockets, and real-time communication using Agora. I have hands-on experience with state management solutions such as BLoC, Riverpod, GetX, and Provider, and I regularly work with MVC and Clean Architecture principles. My focus is on creating smooth, reliable, and user-friendly mobile experiences that perform well in production environments.";
   static const String yearsOfExperience = "Years of Experience";
   static const String completedProjects = "Completed Projects";
-  static const String experienceCount = "4.5+";
   static const String projectCount = "25+";
   static const String downloadResume = "Download Resume";
 
