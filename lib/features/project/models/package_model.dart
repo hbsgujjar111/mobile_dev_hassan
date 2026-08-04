@@ -1,7 +1,7 @@
-class PubPackage {
+class PackageModel {
   final String name;
   final String description;
   final String url;
 
-  const PubPackage({required this.name, required this.description, required this.url});
+  const PackageModel({required this.name, required this.description, required this.url});
 }

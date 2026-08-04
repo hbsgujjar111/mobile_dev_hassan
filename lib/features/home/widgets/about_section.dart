@@ -130,7 +130,7 @@ class AboutSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [Icon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
+                              children: [FaIcon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
                             ),
                           ),
                         ),

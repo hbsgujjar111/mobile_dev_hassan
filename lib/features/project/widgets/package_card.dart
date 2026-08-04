@@ -11,7 +11,7 @@ import '../../../utils/helpers/url_launcher_helper.dart';
 import '../models/package_model.dart';
 
 class PackageCard extends StatelessWidget {
-  final PubPackage package;
+  final PackageModel package;
 
   const PackageCard({super.key, required this.package});
 

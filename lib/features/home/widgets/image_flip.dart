@@ -1,9 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_dev_hassan/common/widgets/images/custom_asset_image.dart';
-import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
 
+import '../../../common/widgets/images/custom_asset_image.dart';
+import '../../../utils/constants/assets_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/extensions/context_extensions.dart';
 

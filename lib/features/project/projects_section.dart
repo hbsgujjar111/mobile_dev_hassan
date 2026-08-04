@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:mobile_dev_hassan/features/project/widgets/package_card.dart';
-import 'package:mobile_dev_hassan/utils/constants/colors.dart';
 
+import '../../utils/constants/colors.dart';
 import '../../utils/constants/sizes.dart';
 import '../../utils/constants/texts.dart';
 import '../../utils/extensions/context_extensions.dart';
 import 'notifiers/package_notifier.dart';
 import 'notifiers/project_notifier.dart';
+import "widgets/package_card.dart";
 import 'widgets/project_card.dart';
 
 class ProjectsSection extends StatelessWidget {

@@ -16,7 +16,7 @@ class HoverIcon extends StatelessWidget {
     this.tooltipText,
   });
 
-  final IconData? icon;
+  final FaIconData? icon;
   final Color iconColor;
   final void Function()? onTap;
   final bool isImage;

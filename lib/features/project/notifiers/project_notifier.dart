@@ -65,7 +65,6 @@ final projects = [
     company: "CMC M-Tech",
     showProject: true,
   ),
-
   ProjectModel(
     title: "Pantheon Coffee",
     description: [
@@ -100,7 +99,6 @@ final projects = [
     company: "CMC M-Tech",
     showProject: true,
   ),
-
   ProjectModel(
     title: "Sehat Sahoolat",
     description: [

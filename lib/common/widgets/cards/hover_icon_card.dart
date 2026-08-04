@@ -9,7 +9,7 @@ class HoverIconCard extends StatelessWidget {
   const HoverIconCard({super.key, required this.title, required this.icon, this.onTap, required this.iconColor});
 
   final String title;
-  final IconData icon;
+  final FaIconData icon;
   final Color iconColor;
   final void Function()? onTap;
 

@@ -1,10 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mobile_dev_hassan/common/widgets/images/custom_asset_image.dart';
-import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
 
+import '../../../common/widgets/images/custom_asset_image.dart';
 import '../../../utils/constants/app_constants.dart';
+import '../../../utils/constants/assets_strings.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/texts.dart';
@@ -128,7 +128,7 @@ class MainSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [Icon(FontAwesomeIcons.laptopCode), Text(KTexts.viewMyWork)],
+                              children: [FaIcon(FontAwesomeIcons.laptopCode), Text(KTexts.viewMyWork)],
                             ),
                           ),
                         ),
@@ -141,7 +141,7 @@ class MainSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [Icon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
+                              children: [FaIcon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
                             ),
                           ),
                         ),
