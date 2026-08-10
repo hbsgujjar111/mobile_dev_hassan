@@ -25,10 +25,14 @@ class ExperienceCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            data.designation ?? "---",
-            style: context.textTheme.headlineSmall!.copyWith(
-              color: context.isDarkMode ? KColors.primaryDark : KColors.primaryLight,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(
+              data.designation ?? "---",
+              style: context.textTheme.titleLarge!.copyWith(
+                color: context.isDarkMode ? KColors.primaryDark : KColors.primaryLight,
+                fontFamily: "Inter",
+              ),
             ),
           ),
 
@@ -37,7 +41,7 @@ class ExperienceCard extends StatelessWidget {
               data.company ?? "---",
               overflow: TextOverflow.ellipsis,
               maxLines: 8,
-              style: context.textTheme.titleLarge,
+              style: context.textTheme.titleLarge!.copyWith(fontFamily: "Inter"),
             ),
           ),
 

@@ -197,6 +197,7 @@ class ProjectDetail extends StatelessWidget {
                         KTexts.company,
                         style: context.textTheme.titleMedium!.copyWith(
                           color: isDark ? KColors.primaryDark : KColors.primaryLight,
+                          fontFamily: "Inter",
                         ),
                       ),
                       Text(data.company ?? "---", style: context.textTheme.bodySmall),

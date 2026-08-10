@@ -22,11 +22,12 @@ class EducationCard extends StatelessWidget {
         children: [
           Text(
             data.degree ?? "---",
-            style: context.textTheme.headlineSmall!.copyWith(
+            style: context.textTheme.titleLarge!.copyWith(
               color: context.isDarkMode ? KColors.primaryDark : KColors.primaryLight,
+              fontFamily: "Inter",
             ),
           ),
-          Text(data.school ?? "---", style: context.textTheme.titleLarge),
+          Text(data.school ?? "---", style: context.textTheme.titleLarge!.copyWith(fontFamily: "Inter")),
           Row(
             spacing: KSizes.spaceBtwItems / 8,
             children: [

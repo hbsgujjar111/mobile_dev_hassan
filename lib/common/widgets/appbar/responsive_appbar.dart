@@ -23,8 +23,6 @@ class ScrollVisibilityNotifier extends Notifier<bool> {
   void show() => state = true;
 }
 
-final scrollVisibilityProvider = NotifierProvider<ScrollVisibilityNotifier, bool>(ScrollVisibilityNotifier.new);
-
 /// Local UI state for menu open/close
 final menuOpenProvider = StateProvider<bool>((ref) => false);
 
@@ -36,7 +34,6 @@ class ResponsiveAppbar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDark = context.isDarkMode;
-    final showNavItems = ref.watch(scrollVisibilityProvider);
     final isMenuOpen = ref.watch(menuOpenProvider);
     final toggleMenu = ref.read(menuOpenProvider.notifier);
 
@@ -119,7 +116,7 @@ class ResponsiveAppbar extends ConsumerWidget {
       margin: const EdgeInsets.fromLTRB(20, 20, 20, 40),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4.0),
       decoration: BoxDecoration(
-        color: isDark ? KColors.darkContainerSecondary : KColors.lightContainerSecondary,
+        color: isDark ? KColors.darkContainerSecondary : KColors.lightContainer,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(borderRadius),
           topRight: Radius.circular(borderRadius),
@@ -154,9 +151,9 @@ class ResponsiveAppbar extends ConsumerWidget {
                     : const SizedBox.shrink(),
               ),
 
-              // Top Row: Icon + Nav / Menu + Theme toggle
+              /// Top Row: Icon + Nav / Menu + Theme toggle
               Row(
-                spacing: (isMobile || !showNavItems) ? KSizes.spaceBtwSections : KSizes.spaceBtwItems,
+                spacing: isMobile ? KSizes.spaceBtwSections : KSizes.spaceBtwItems,
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

@@ -27,7 +27,6 @@ class _HomeState extends ConsumerState<Home> {
   double mainHeight = 0;
   double aboutHeight = 0;
   double combinedHeight = 0;
-  double _previousOffset = 0.0;
 
   @override
   void initState() {
@@ -36,7 +35,6 @@ class _HomeState extends ConsumerState<Home> {
     // Scroll listener for flip progress & floating AppBar
     _scrollController.addListener(() {
       setState(() {}); // rebuild for flip
-      _onScroll();
     });
 
     // Safe measurement of section heights
@@ -76,19 +74,6 @@ class _HomeState extends ConsumerState<Home> {
     return _scrollController.offset <= (combinedHeight / 1.5);
   }
 
-  /// Floating AppBar visibility
-  void _onScroll() {
-    final notifier = ref.read(scrollVisibilityProvider.notifier);
-    final offset = _scrollController.hasClients ? _scrollController.offset : 0.0;
-
-    if (offset > _previousOffset + 20) {
-      if (ref.read(scrollVisibilityProvider)) notifier.hide();
-    } else if (offset < _previousOffset - 20) {
-      if (!ref.read(scrollVisibilityProvider)) notifier.show();
-    }
-    _previousOffset = offset;
-  }
-
   @override
   void dispose() {
     _scrollController.dispose();
@@ -97,8 +82,6 @@ class _HomeState extends ConsumerState<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final showNavItems = ref.watch(scrollVisibilityProvider);
-
     final isMobile = context.isMobile;
     final isTablet = context.isTablet;
     final isDesktop = !isMobile && !isTablet;
@@ -145,7 +128,7 @@ class _HomeState extends ConsumerState<Home> {
 
           /// Floating AppBar
           AnimatedAlign(
-            alignment: showNavItems ? Alignment.topCenter : Alignment.bottomCenter,
+            alignment: Alignment.bottomCenter,
             duration: const Duration(milliseconds: 300),
             child: const ResponsiveAppbar(),
           ),

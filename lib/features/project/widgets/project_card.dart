@@ -54,9 +54,12 @@ class ProjectCard extends StatelessWidget {
             ),
 
           /// read more button
-          ElevatedButton(
-            onPressed: () => context.pushNamed(KAppRouteNames.projectDetailRoute, extra: data),
-            child: Text(KTexts.readMore),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: ElevatedButton(
+              onPressed: () => context.pushNamed(KAppRouteNames.projectDetailRoute, extra: data),
+              child: Text(KTexts.readMore),
+            ),
           ),
         ],
       ),

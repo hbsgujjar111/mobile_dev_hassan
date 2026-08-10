@@ -5,7 +5,7 @@ class KColors {
 
   /// App Basic Colors
   static const Color primaryLight = Color(0xFF00875A);
-  static const Color primaryDark = Color(0xFF7aff70);
+  static const Color primaryDark = Color(0xFF7AFF70);
   static const Color primary = Color(0xFFC73907);
   static const Color secondary = Color(0xFFFF6A10);
   static const Color neutral = Color(0xFF6E6D6C);
@@ -56,7 +56,7 @@ class KColors {
   static const Color web = Color(0xFF2196F3);
 
   /// Text Colors
-  static const Color textLight = Color(0xFF000000);
+  static const Color textLight = Color(0xFF111827);
   static const Color textLightSecondary = Color(0x00000080);
   static const Color textDark = Color(0xFFFFFFFF);
   static const Color textDarkSecondary = Color(0xFFFFFFFF);
@@ -65,11 +65,11 @@ class KColors {
   static const Color textWhite = Color(0xffFFFFFF);
 
   /// Background Colors
-  static const Color light = Color(0xFFFFFFFF);
+  static const Color light = Color(0xFFF4F6F8);
   static const Color dark = Color(0xFF1A1A1B);
 
   /// Background Container Colors
-  static const Color lightContainer = Color(0xFFf0f0f0);
+  static const Color lightContainer = Color(0xFFFFFFFF);
   static const Color lightContainerSecondary = Color(0xFFf8f9fa);
   static Color darkContainer = Color(0xFF333333);
   static Color darkContainerSecondary = Color(0xFF0F0F0F);
