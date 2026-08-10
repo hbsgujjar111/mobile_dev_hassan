@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../common/widgets/images/custom_asset_image.dart';
 import '../../../utils/constants/app_constants.dart';
@@ -128,7 +127,7 @@ class MainSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [FaIcon(FontAwesomeIcons.laptopCode), Text(KTexts.viewMyWork)],
+                              children: [Icon(Icons.laptop_mac_rounded), Text(KTexts.viewMyWork)],
                             ),
                           ),
                         ),
@@ -141,7 +140,7 @@ class MainSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [FaIcon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
+                              children: [Icon(Icons.phone_iphone_rounded), Text(KTexts.getInTouch)],
                             ),
                           ),
                         ),

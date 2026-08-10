@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:timeline_list/timeline_list.dart';
 
 import '../../common/styles/shadow_styles.dart';
@@ -65,8 +64,8 @@ class ExperienceSection extends StatelessWidget {
                           ),
                         ),
                         child: Center(
-                          child: FaIcon(
-                            i == 0 ? FontAwesomeIcons.locationDot : FontAwesomeIcons.briefcase,
+                          child: Icon(
+                            i == 0 ? Icons.location_on_rounded : Icons.work,
                             color: KColors.kWhite,
                             size: KSizes.iconSm,
                           ),

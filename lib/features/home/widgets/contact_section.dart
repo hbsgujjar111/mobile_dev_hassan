@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
 
 import '../../../common/widgets/cards/hover_card.dart';
 import '../../../common/widgets/cards/hover_icon_card.dart';
@@ -133,27 +133,27 @@ class ContactSection extends StatelessWidget {
                     alignment: WrapAlignment.center,
                     runAlignment: WrapAlignment.center,
                     children: [
-                      HoverIconCard(
+                      HoverIconCard.svg(
                         title: KTexts.whatsapp,
-                        icon: FontAwesomeIcons.whatsapp,
+                        svgIcon: KAssets.whatsapp,
                         iconColor: KColors.whatsapp,
                         onTap: () => UrlLauncherHelper.launchWhatsApp(),
                       ),
-                      HoverIconCard(
+                      HoverIconCard.svg(
                         title: KTexts.linkedIn,
-                        icon: FontAwesomeIcons.linkedin,
+                        svgIcon: KAssets.linkedin,
                         iconColor: KColors.linkedIn,
                         onTap: () => UrlLauncherHelper.openLink(linkedInURL),
                       ),
-                      HoverIconCard(
+                      HoverIconCard.svg(
                         title: KTexts.stackOverflow,
-                        icon: FontAwesomeIcons.stackOverflow,
+                        svgIcon: KAssets.stackOverflow,
                         iconColor: KColors.stackOverflow,
                         onTap: () => UrlLauncherHelper.openLink(stackOverflowURL),
                       ),
-                      HoverIconCard(
+                      HoverIconCard.svg(
                         title: KTexts.gitHub,
-                        icon: FontAwesomeIcons.github,
+                        svgIcon: KAssets.github,
                         iconColor: isDark ? KColors.kWhite : KColors.gitHub,
                         onTap: () => UrlLauncherHelper.openLink(gitHubURL),
                       ),

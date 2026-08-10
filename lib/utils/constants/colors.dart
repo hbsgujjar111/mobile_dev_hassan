@@ -51,7 +51,7 @@ class KColors {
   static const Color gitHub = Color(0xFF171515);
   static const Color android = Color(0xFF3DDC84);
   static const Color appStore = Color(0xFF0D96F6);
-  static const Color huawei = Color(0xFFF0A500);
+  static const Color huawei = Color(0xFFf1454b);
   static const Color windows = Color(0xFF00A4EF);
   static const Color web = Color(0xFF2196F3);
 

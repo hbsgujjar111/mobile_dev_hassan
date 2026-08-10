@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../common/widgets/chips/custom_chip.dart';
@@ -137,47 +136,45 @@ class ProjectDetail extends StatelessWidget {
                       runAlignment: WrapAlignment.center,
                       children: [
                         if (data.android != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.googlePlay,
-                            iconColor: KColors.android,
-                            isImage: true,
-                            assetPath: KAssets.playStore,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.playStore,
+                            iconColor: KColors.kTransparent,
                             tooltipText: KTexts.googlePlayStore,
+                            isMulticolor: true,
                             onTap: () => UrlLauncherHelper.openLink(data.android!),
                           ),
                         if (data.apple != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.appStoreIos,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.appstore,
                             iconColor: KColors.appStore,
                             tooltipText: KTexts.appleAppStore,
                             onTap: () => UrlLauncherHelper.openLink(data.apple!),
                           ),
                         if (data.huawei != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.mobile,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.huaweiAppGallery,
                             iconColor: KColors.huawei,
-                            isImage: true,
-                            assetPath: KAssets.huaweiAppGallery,
                             tooltipText: KTexts.huaweiAppGallery,
+                            isMulticolor: true,
                             onTap: () => UrlLauncherHelper.openLink(data.huawei!),
                           ),
                         if (data.web != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.globe,
-                            iconColor: KColors.web,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.globe,
+                            iconColor: isDark ? KColors.kWhite : KColors.kBlack,
                             tooltipText: KTexts.web,
                             onTap: () => UrlLauncherHelper.openLink(data.web!),
                           ),
                         if (data.windows != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.windows,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.windows,
                             iconColor: KColors.windows,
                             tooltipText: KTexts.windowsDesktop,
                             onTap: () => UrlLauncherHelper.openLink(data.windows!),
                           ),
                         if (data.mac != null)
-                          HoverIcon(
-                            icon: FontAwesomeIcons.apple,
+                          HoverIcon.svg(
+                            svgIcon: KAssets.apple,
                             iconColor: KColors.appStore,
                             tooltipText: KTexts.macOS,
                             onTap: () => UrlLauncherHelper.openLink(data.mac!),

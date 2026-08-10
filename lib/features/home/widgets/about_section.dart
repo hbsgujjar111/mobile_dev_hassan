@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../common/widgets/cards/hover_card.dart';
 import '../../../utils/constants/app_constants.dart';
@@ -117,7 +115,7 @@ class AboutSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [Icon(CupertinoIcons.doc_richtext), Text(KTexts.downloadResume)],
+                              children: [Icon(Icons.description_outlined), Text(KTexts.downloadResume)],
                             ),
                           ),
                         ),
@@ -130,7 +128,7 @@ class AboutSection extends StatelessWidget {
                             child: Row(
                               spacing: KSizes.spaceBtwItems / 2,
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [FaIcon(FontAwesomeIcons.mobileScreen), Text(KTexts.getInTouch)],
+                              children: [Icon(Icons.phone_iphone_rounded), Text(KTexts.getInTouch)],
                             ),
                           ),
                         ),

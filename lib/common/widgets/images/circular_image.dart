@@ -43,11 +43,9 @@ class KCircularImage extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius ?? 100),
-        child: Image(
-          image: isNetworkImage ? NetworkImage(image) : AssetImage(image) as ImageProvider,
-          color: overlayColor,
-          fit: fit,
-        ),
+        child: isNetworkImage
+            ? Image.network(image, color: overlayColor, fit: fit)
+            : Image.asset(image, color: overlayColor, fit: fit),
       ),
     );
   }

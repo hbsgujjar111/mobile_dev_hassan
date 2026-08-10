@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
@@ -11,17 +11,38 @@ class HoverIcon extends StatelessWidget {
     required this.icon,
     this.onTap,
     required this.iconColor,
-    this.isImage = false,
-    this.assetPath,
     this.tooltipText,
-  });
+    this.isMulticolor = false,
+  }) : assetPath = null,
+       svgIcon = null;
 
-  final FaIconData? icon;
+  const HoverIcon.svg({
+    super.key,
+    required this.svgIcon,
+    this.onTap,
+    required this.iconColor,
+    this.tooltipText,
+    this.isMulticolor = false,
+  }) : icon = null,
+       assetPath = null;
+
+  const HoverIcon.image({
+    super.key,
+    required this.assetPath,
+    this.onTap,
+    required this.iconColor,
+    this.tooltipText,
+    this.isMulticolor = false,
+  }) : icon = null,
+       svgIcon = null;
+
+  final IconData? icon;
   final Color iconColor;
   final void Function()? onTap;
-  final bool isImage;
   final String? assetPath;
+  final String? svgIcon;
   final String? tooltipText;
+  final bool isMulticolor;
 
   @override
   Widget build(BuildContext context) {
@@ -44,21 +65,48 @@ class HoverIcon extends StatelessWidget {
     );
   }
 
-  // Determines whether to display an icon or an image
   Widget _buildIconOrImage(bool isHovered, BuildContext context) {
-    if (isImage) {
-      return Image.asset(
-        assetPath!,
-        width: KSizes.iconLg,
-        height: KSizes.iconLg,
-        colorBlendMode: (context.isTablet || context.isMobile) ? null : BlendMode.modulate,
-        color: (isHovered || (context.isTablet || context.isMobile)) ? null : KColors.neutralSwatch.shade300,
+    final bool showActiveState = isHovered || context.isTablet || context.isMobile;
+
+    /// IMAGE ASSET HANDLING (Multi-colored by default)
+    if (assetPath != null) {
+      return AnimatedOpacity(
+        duration: const Duration(milliseconds: 200), // Smooth fade transition
+        opacity: showActiveState ? 1.0 : 0.3, // Dim/dull on unhover, bright on hover
+        child: Image.asset(assetPath!, width: KSizes.iconLg, height: KSizes.iconLg),
       );
-    } else {
-      return FaIcon(
-        icon,
-        size: KSizes.iconLg,
-        color: (isHovered || (context.isTablet || context.isMobile)) ? iconColor : KColors.neutralSwatch.shade300,
+    }
+    /// SVG ASSET HANDLING
+    else if (svgIcon != null) {
+      if (isMulticolor) {
+        return AnimatedOpacity(
+          duration: const Duration(milliseconds: 200), // Smooth fade transition
+          opacity: showActiveState ? 1.0 : 0.4, // Dim/dull on unhover, bright on hover
+          child: SvgPicture.asset(svgIcon!, width: KSizes.iconLg, height: KSizes.iconLg),
+        );
+      } else {
+        // Monochrome SVG (like Apple App Store) - Tints and smoothly fades
+        return AnimatedOpacity(
+          duration: const Duration(milliseconds: 200),
+          opacity: showActiveState ? 1.0 : 0.6, // Soft dim on unhover
+          child: SvgPicture.asset(
+            svgIcon!,
+            width: KSizes.iconLg,
+            height: KSizes.iconLg,
+            colorFilter: ColorFilter.mode(
+              showActiveState ? iconColor : KColors.neutralSwatch.shade300,
+              BlendMode.srcIn,
+            ),
+          ),
+        );
+      }
+    }
+    /// MATERIAL ICON HANDLING (Always monochrome)
+    else {
+      return AnimatedOpacity(
+        duration: const Duration(milliseconds: 200),
+        opacity: showActiveState ? 1.0 : 0.6,
+        child: Icon(icon, size: KSizes.iconLg, color: showActiveState ? iconColor : KColors.neutralSwatch.shade300),
       );
     }
   }

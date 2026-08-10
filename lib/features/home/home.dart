@@ -32,22 +32,15 @@ class _HomeState extends ConsumerState<Home> {
   void initState() {
     super.initState();
 
-    // Scroll listener for flip progress & floating AppBar
-    _scrollController.addListener(() {
-      setState(() {}); // rebuild for flip
-    });
-
-    // Safe measurement of section heights
+    /// SAFE MEASUREMENT: Rebuilds once only when layout heights are measured
     WidgetsBinding.instance.addPostFrameCallback((_) => _measureHeightsSafe());
   }
 
-  /// Measure section heights repeatedly until valid
   void _measureHeightsSafe() {
     final mainCtx = AppConstants.mainSectionKey.currentContext;
     final aboutCtx = AppConstants.aboutSectionKey.currentContext;
 
     if (mainCtx == null || aboutCtx == null) {
-      // try next frame
       WidgetsBinding.instance.addPostFrameCallback((_) => _measureHeightsSafe());
       return;
     }
@@ -57,21 +50,14 @@ class _HomeState extends ConsumerState<Home> {
 
     mainHeight = mainBox.size.height;
     aboutHeight = aboutBox.size.height;
-    combinedHeight = mainHeight + (aboutHeight / 1);
+    combinedHeight = mainHeight + aboutHeight;
 
-    setState(() {}); // heights ready → rebuild flip card
+    setState(() {}); // Measured once at load
   }
 
-  /// Scroll progress for flip animation (0 → 1)
-  double flipProgress() {
-    if (!_scrollController.hasClients || combinedHeight == 0) return 0.0;
-    return (_scrollController.offset / combinedHeight).clamp(0.0, 1);
-  }
-
-  /// Show flip card only during first 2 sections
-  bool showFlipCard() {
-    if (!_scrollController.hasClients || combinedHeight == 0) return false;
-    return _scrollController.offset <= (combinedHeight / 1.5);
+  bool showFlipCard(double offset) {
+    if (combinedHeight == 0) return false;
+    return offset <= (combinedHeight / 1.5);
   }
 
   @override
@@ -93,7 +79,6 @@ class _HomeState extends ConsumerState<Home> {
             controller: _scrollController,
             child: Column(
               children: [
-                // Stack covering first 2 sections
                 if (isDesktop)
                   SizedBox(
                     height: combinedHeight,
@@ -105,9 +90,16 @@ class _HomeState extends ConsumerState<Home> {
                             AboutSection(key: AppConstants.aboutSectionKey),
                           ],
                         ),
-                        if (!context.isTablet && !context.isMobile)
-                          if (showFlipCard())
-                            ImageFlip(progress: flipProgress(), scrollOffset: _scrollController.offset),
+                        // PERFORMANCE WIN: AnimatedBuilder isolates scroll rebuilds to just the ImageFlip!
+                        AnimatedBuilder(
+                          animation: _scrollController,
+                          builder: (context, child) {
+                            final offset = _scrollController.hasClients ? _scrollController.offset : 0.0;
+                            if (!showFlipCard(offset)) return const SizedBox.shrink();
+
+                            return ImageFlip(scrollController: _scrollController, combinedHeight: combinedHeight);
+                          },
+                        ),
                       ],
                     ),
                   ),
