@@ -6,8 +6,34 @@
     <meta charset="UTF-8">
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
 
-    <!-- Initial static description (Updated instantly by the script below) -->
-    <meta name="description" content="Hassan Mobile Dev Portfolio">
+    <!-- 1. Optimized Viewport Meta Tag (Fixed mobile scale usability) -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
+
+    <!-- 2. Rich Static Fallback Meta Tags (For static crawlers) -->
+    <title>Hassan Bin Salim | Senior Flutter Developer</title>
+    <meta name="description"
+          content="Hassan Bin Salim — Senior Flutter Developer specializing in high-performance, responsive cross-platform mobile application development with Flutter & Dart.">
+    <meta name="theme-color" content="#1A1A1B">
+
+    <!-- 3. Static OpenGraph Fallbacks (For Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mobiledevhassan.pk/">
+    <meta property="og:title" content="Hassan Bin Salim | Senior Flutter Developer">
+    <meta property="og:description"
+          content="Senior Flutter Developer with 5.5+ years of experience building scalable, high-performance cross-platform mobile applications.">
+    <meta property="og:image" content="https://mobiledevhassan.pk/preview.png">
+
+    <!-- 4. Static Twitter/X Fallbacks -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mobiledevhassan.pk/">
+    <meta name="twitter:title" content="Hassan Bin Salim | Senior Flutter Developer">
+    <meta name="twitter:description"
+          content="Senior Flutter Developer with 5.5+ years of experience building scalable, high-performance cross-platform mobile applications.">
+    <meta name="twitter:image" content="https://mobiledevhassan.pk/preview.png">
+
+    <!-- 5. Canonical Link -->
+    <link rel="canonical" href="https://mobiledevhassan.pk/">
 
     <!-- iOS meta tags & icons -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -16,13 +42,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-    <!-- Favicon -->
+    <!-- Favicon Links (Clean 32x32 configuration) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
     <link rel="icon" type="image/png" href="favicon.png"/>
-
-    <title>Hassan Bin Salim | Senior Flutter Developer</title>
     <link rel="manifest" href="manifest.json">
 
-    <!-- Dynamic SEO & Experience Calculation Script -->
+    <!-- 6. Structured Schema Data (JSON-LD for Search Engines) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Hassan Bin Salim",
+            "jobTitle": "Senior Flutter Developer",
+            "url": "https://mobiledevhassan.pk",
+            "sameAs": [
+                "https://github.com/mobiledevhassan"
+            ],
+            "description": "Senior Flutter Developer specializing in high-performance, responsive cross-platform mobile application development with Flutter & Dart."
+        }
+    </script>
+
+    <!-- Dynamic SEO & Experience Calculation Script (Smooth fallback overwrite) -->
     <script>
         (function() {
             // Your career start date (February 2021)
@@ -37,10 +77,9 @@
             const titleText = "Hassan Bin Salim | Senior Flutter Developer";
             const descText = "Senior Flutter Developer with " + yearsOfExp + "+ years of experience building scalable, high-performance cross-platform mobile applications.";
 
-            // Note: Use a relative path to the preview image in your web/assets folder
-            const imageUrl = window.location.origin + window.location.pathname + "assets/assets/preview.png";
+            const imageUrl = window.location.origin + window.location.pathname + "preview.png";
 
-            // Helper function to update or create meta tags dynamically
+            // Helper function to update meta tags dynamically for clients with JS enabled
             function setMeta(attribute, nameOrProperty, value) {
                 const selector = `meta[${attribute}="${nameOrProperty}"]`;
                 let meta = document.querySelector(selector);
@@ -60,14 +99,12 @@
             setMeta('name', 'description', descText);
 
             // Update OpenGraph (Facebook, LinkedIn, WhatsApp)
-            setMeta('property', 'og:type', 'website');
             setMeta('property', 'og:url', window.location.href);
             setMeta('property', 'og:title', titleText);
             setMeta('property', 'og:description', descText);
             setMeta('property', 'og:image', imageUrl);
 
             // Update Twitter Cards
-            setMeta('name', 'twitter:card', 'summary_large_image');
             setMeta('name', 'twitter:url', window.location.href);
             setMeta('name', 'twitter:title', titleText);
             setMeta('name', 'twitter:description', descText);
@@ -112,6 +149,9 @@
 </head>
 <body>
 
+<!-- 7. Invisible H1 tag for SEO Web Spiders -->
+<h1 style="display:none;">Hassan Bin Salim | Senior Flutter Developer Portfolio</h1>
+
 <!-- Splash screen div for Lottie -->
 <div id="splash-screen">
     <div id="lottie-container"></div>
@@ -122,7 +162,6 @@
 
 <!-- Lottie animation & Clean Flutter synchronization -->
 <script>
-    // Note the "assets/assets/" path. Required for Release mode & GitHub Pages!
     const assetPath = 'assets/assets/animations/splash.json';
 
     // 1. Load the Lottie Animation immediately
@@ -139,8 +178,6 @@
       const splash = document.getElementById('splash-screen');
       if (splash) {
         splash.style.opacity = '0';
-
-        // Change 600 to 300 to remove the div immediately after the transition ends
         setTimeout(() => {
           splash.remove();
         }, 300);
