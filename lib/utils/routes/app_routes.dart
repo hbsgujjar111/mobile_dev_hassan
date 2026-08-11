@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../error_screen.dart';
 import '../../features/home/home.dart';
 import '../../features/project/models/project_model.dart';
 import '../../features/project/widgets/project_detail.dart';
+import '../../not_found_page.dart';
 import 'app_route_names.dart';
 
 final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
@@ -12,7 +12,7 @@ final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
 final GoRouter appRoutes = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: KAppRouteNames.homePageRoute,
-  errorBuilder: (context, state) => ErrorScreen(error: state.error?.message),
+  errorBuilder: (context, state) => NotFoundPage(),
   routes: <RouteBase>[
     /// home screen
     GoRoute(path: KAppRouteNames.homePageRoute, builder: (_, _) => Home()),

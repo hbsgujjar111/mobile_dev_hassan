@@ -1,10 +1,10 @@
 # flutter pub run flutter_launcher_icons
 flutter_launcher_icons:
-  image_path: "assets/logos/app-icon.png"
+  image_path: "assets/logos/app-icon.webp"
 
   web:
     generate: true
-    image_path: "assets/logos/app-icon.png"
+    image_path: "assets/logos/app-icon.webp"
 
 
 #  command to create launch icons

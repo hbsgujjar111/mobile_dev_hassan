@@ -70,8 +70,10 @@ class KTexts {
   static const String whyHireMe = "Why Hire Me?";
   static const String because = "Because:";
 
-  // static const String a = "";
-  // static const String a = "";
+  /// not found page Texts
+  static const String notFoundPageTitle = "404";
+  static const String pageNotFound = "Page not found";
+  static const String takeMeHome = "Take Me Home";
 
   /// app Texts
   static const String somethingWentWrong = "Something went wrong!";

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_dev_hassan/utils/constants/assets_strings.dart';
+import '../../../utils/constants/assets_strings.dart';
 
 import '../../../common/widgets/cards/hover_card.dart';
 import '../../../common/widgets/cards/hover_icon_card.dart';
