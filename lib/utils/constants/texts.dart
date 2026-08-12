@@ -66,7 +66,7 @@ class KTexts {
   static const String linkedIn = "LinkedIn";
   static const String stackOverflow = "Stack Overflow";
   static const String gitHub = "GitHub";
-  static const String footerText = "© Copyright 2025. All Rights Reserved by Hassan Bin Salim";
+  static final String footerText = "© Copyright ${DateTime.now().year}. All Rights Reserved by Hassan Bin Salim";
   static const String whyHireMe = "Why Hire Me?";
   static const String because = "Because:";
 
