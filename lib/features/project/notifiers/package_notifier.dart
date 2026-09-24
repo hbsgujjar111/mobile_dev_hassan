@@ -19,4 +19,10 @@ const List<PackageModel> packagesList = [
         'An automated utility designed to scale and optimize cloud-hosted images dynamically across device viewports, enhancing network performance and ensuring pixel-perfect screen layouts.',
     url: "https://pub.dev/packages/responsive_cloud_image",
   ),
+  PackageModel(
+    name: "flutter_rebrand_kit",
+    description:
+        'An all-in-one CLI tool to rebrand Flutter apps, update package IDs, generate launcher & notification icons, native splash screens, and Play Store graphics.',
+    url: "https://pub.dev/packages/flutter_rebrand_kit",
+  ),
 ];
