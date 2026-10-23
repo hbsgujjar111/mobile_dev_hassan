@@ -1,9 +1,14 @@
-name: Deploy Flutter Web to GitHub Pages
+name: Build and Deploy Jaspr Site to GitHub Pages
 
 on:
   push:
     branches:
       - master
+      - feat/jaspr-migration
+  # Monthly rebuild so the "years of experience" text (calculated at build time) stays current.
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,26 +21,36 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
+      # pubspec.yaml has `jaspr: flutter: plugins`, so the Flutter SDK (which includes Dart) is needed.
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.44.0"
           channel: stable
 
-      - name: Enable web
-        run: flutter config --enable-web
-
       - name: Install dependencies
-        run: flutter pub get
+        run: dart pub get
 
-      - name: Build web
-        run: flutter build web --release --base-href="/"
-      #        run: flutter build web --release --base-href="/${{ github.event.repository.name }}/"
+      - name: Install Jaspr CLI
+        run: |
+          dart pub global activate jaspr_cli 0.23.5
+          echo "$HOME/.pub-cache/bin" >> "$GITHUB_PATH"
 
+      - name: Build static site
+        run: jaspr build --sitemap-domain https://mobiledevhassan.pk
+
+      - name: Check output
+        run: |
+          ls build/jaspr
+          test -f build/jaspr/CNAME
+          test -f build/jaspr/index.html
+
+      # Only master deploys. The migration branch only builds, so it can never touch the live site.
       - name: Deploy to gh-pages
+        if: github.ref == 'refs/heads/master'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: build/web
+          publish_dir: build/jaspr
           force_orphan: true
