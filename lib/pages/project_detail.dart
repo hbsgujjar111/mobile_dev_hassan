@@ -1,7 +1,9 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/page_head.dart';
 import '../data/models.dart';
+import 'home.dart' show projectSlug;
 
 /// One page per project, pre-rendered at build time (e.g. /projects/myuts).
 class ProjectDetail extends StatelessComponent {
@@ -32,7 +34,16 @@ class ProjectDetail extends StatelessComponent {
       if (_has(data.mac)) _store(data.mac!, 'MacOS', 'apple'),
     ];
 
+    final first = descriptions.isNotEmpty ? descriptions.first : '';
+    final summary = first.length > 150 ? '${first.substring(0, 147).trimRight()}...' : first;
+    final name = data.title ?? '';
+
     return div(classes: 'page detail-page', [
+      pageHead(
+        title: '$name | Hassan Bin Salim',
+        description: summary.isEmpty ? '$name — a Flutter project by Hassan Bin Salim.' : summary,
+        path: '/projects/${projectSlug(name)}',
+      ),
       a(
         href: '/#projects',
         classes: 'back-pill',
