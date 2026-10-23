@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/page_head.dart';
 import '../constants/assets.dart';
 import '../constants/texts.dart';
 import '../data/models.dart';
@@ -46,6 +47,12 @@ class Home extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'page', [
+      pageHead(
+        title: Texts.siteTitle,
+        description:
+            'Hassan Bin Salim — Senior Flutter Developer with ${experienceYearsText()} years of experience building scalable, high-performance cross-platform mobile apps with Flutter & Dart.',
+        path: '/',
+      ),
       // Hero + About share a zone so the photo can flip between them (web/theme.js).
       div(classes: 'flip-zone', [
         _hero(),
@@ -81,7 +88,12 @@ class Home extends StatelessComponent {
           ]),
         ]),
         div(classes: 'hero-image', [
-          img(src: Assets.main, alt: 'Hassan Bin Salim, Flutter developer', classes: 'photo'),
+          img(
+            src: Assets.main,
+            alt: 'Hassan Bin Salim, Flutter developer',
+            classes: 'photo',
+            attributes: {'fetchpriority': 'high', 'decoding': 'async'},
+          ),
         ]),
       ]),
       a(
@@ -123,7 +135,12 @@ class Home extends StatelessComponent {
     return section(id: 'about', classes: 'section', [
       div(classes: 'container about-inner', [
         div(classes: 'about-image', [
-          img(src: Assets.about, alt: 'About Hassan Bin Salim', classes: 'photo'),
+          img(
+            src: Assets.about,
+            alt: 'About Hassan Bin Salim',
+            classes: 'photo',
+            attributes: {'loading': 'lazy', 'decoding': 'async'},
+          ),
         ]),
         div(classes: 'about-text', [
           h2(classes: 'section-title', [.text('ABOUT ME')]),
@@ -271,7 +288,12 @@ class Home extends StatelessComponent {
     final extra = techs.length - shown.length;
     return div(classes: 'card project-card', [
       div(classes: 'project-media', [
-        img(src: project.graphic ?? '', alt: '$title app screenshot', classes: 'project-image'),
+        img(
+          src: project.graphic ?? '',
+          alt: '$title app screenshot',
+          classes: 'project-image',
+          attributes: {'loading': 'lazy', 'decoding': 'async'},
+        ),
         if (project.company != null) span(classes: 'badge', [.text(project.company!)]),
       ]),
       div(classes: 'project-body', [

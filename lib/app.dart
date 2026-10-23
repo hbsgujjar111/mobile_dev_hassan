@@ -21,17 +21,24 @@ class App extends StatelessComponent {
       // Thin reading-progress bar at the top (CSS only, browsers with scroll-driven animations).
       div(classes: 'scroll-progress', []),
       const Header(),
-      Router(
-        routes: [
-          Route(path: '/', title: Texts.siteTitle, builder: (context, state) => const Home()),
-          // One route per project (path parameters are not supported in static mode).
-          for (final project in projects)
-            if (project.showProject ?? true)
-              Route(
-                path: '/projects/${projectSlug(project.title ?? '')}',
-                title: '${project.title} | Hassan Bin Salim',
-                builder: (context, state) => ProjectDetail(data: project),
-              ),
+      // Main landmark for screen readers (Lighthouse accessibility audit).
+      div(
+        id: 'main',
+        attributes: {'role': 'main'},
+        [
+          Router(
+            routes: [
+              Route(path: '/', title: Texts.siteTitle, builder: (context, state) => const Home()),
+              // One route per project (path parameters are not supported in static mode).
+              for (final project in projects)
+                if (project.showProject ?? true)
+                  Route(
+                    path: '/projects/${projectSlug(project.title ?? '')}',
+                    title: '${project.title} | Hassan Bin Salim',
+                    builder: (context, state) => ProjectDetail(data: project),
+                  ),
+            ],
+          ),
         ],
       ),
       const SiteFooter(),
