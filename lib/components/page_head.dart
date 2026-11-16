@@ -10,7 +10,8 @@ Component pageHead({
   required String description,
   required String path,
 }) {
-  final url = path == '/' ? '$siteUrl/' : '$siteUrl$path';
+  // GitHub Pages serves folders with a trailing slash, so use that form as the canonical URL.
+  final url = path.endsWith('/') ? '$siteUrl$path' : '$siteUrl$path/';
   const image = '$siteUrl/preview.png';
   return Document.head(
     title: title,
