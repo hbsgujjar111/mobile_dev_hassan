@@ -23,8 +23,7 @@ import 'package:portfolio_jaspr/constants/theme.dart' as _theme;
 ///   runApp(...);
 /// }
 /// ```
-ServerOptions get defaultServerOptions =>
-    ServerOptions(
-      clientId: 'main.client.dart.js',
-      styles: () => [..._theme.styles],
-    );
+ServerOptions get defaultServerOptions => ServerOptions(
+  clientId: 'main.client.dart.js',
+  styles: () => [..._theme.styles],
+);
